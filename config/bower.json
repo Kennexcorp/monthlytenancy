@@ -1,0 +1,19 @@
+{
+  "name": "bower",
+  "authors": [
+    "kennexcorp <ekeneoguikpu@yahoo.com>"
+  ],
+  "description": "laravel",
+  "main": "bower",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/vendors",
+    "test",
+    "tests"
+  ]
+}
