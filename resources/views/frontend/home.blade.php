@@ -28,7 +28,9 @@
                             <span>2</span>
                         </div>
                     </div>
-                    <p><a href="about.html" class="btn btn-primary text-white px-4 py-3">Learn More</a></p>
+                    @if(!(\Auth::check()))
+                    <p><a href="{{ route('about') }}" class="btn btn-primary text-white px-4 py-3">Learn More</a></p>
+                    @endif
                 </div>
             </div>
         </div>
@@ -194,6 +196,7 @@
     </div>
 </form>
 
+@if(!(\Auth::check()))
 <div class="site-section">
     <div class="container">
         <div class="row align-items-stretch">
@@ -268,6 +271,7 @@
         </div>
     </div>
 </div>
+@endif
 
 <div class="site-section bg-black block-14">
     <div class="container">
@@ -282,14 +286,13 @@
         </div>
 
 
-        <div class="owl-carousel nonloop-block-14">
+        <div class="owl-carousel nonloop-block-13">
             <div class="media-38289">
-                <a href="property-single.html" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
+                <a href="{{  route('admin.property.show', 1) }}" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
                         class="img-fluid"></a>
                 <div class="text">
                     <div class="d-flex justify-content-between mb-3">
-                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen
-"></span> <span>2911 Sq Ft.</span></div>
+                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span> <span>2911 Sq Ft.</span></div>
                         <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
                             <span>2.</span>
                         </div>
@@ -306,12 +309,11 @@
             </div>
 
             <div class="media-38289">
-                <a href="property-single.html" class="d-block"><img src="{{ asset('img/frontend/images/img_2.jpg') }}" alt="Image"
+                <a href="{{  route('admin.property.show', 1) }}" class="d-block"><img src="{{ asset('img/frontend/images/img_2.jpg') }}" alt="Image"
                         class="img-fluid"></a>
                 <div class="text">
                     <div class="d-flex justify-content-between mb-3">
-                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen
-"></span> <span>2911 Sq Ft.</span></div>
+                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span> <span>2911 Sq Ft.</span></div>
                         <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
                             <span>2.</span>
                         </div>
@@ -328,12 +330,11 @@
             </div>
 
             <div class="media-38289">
-                <a href="property-single.html" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
+                <a href="{{  route('admin.property.show', 1) }}" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
                         class="img-fluid"></a>
                 <div class="text">
                     <div class="d-flex justify-content-between mb-3">
-                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen
-"></span> <span>2911 Sq Ft.</span></div>
+                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span> <span>2911 Sq Ft.</span></div>
                         <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
                             <span>2.</span>
                         </div>
@@ -351,12 +352,11 @@
 
 
             <div class="media-38289">
-                <a href="property-single.html" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
+                <a href="{{  route('admin.property.show', 1) }}" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
                         class="img-fluid"></a>
                 <div class="text">
                     <div class="d-flex justify-content-between mb-3">
-                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen
-"></span> <span>2911 Sq Ft.</span></div>
+                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span> <span>2911 Sq Ft.</span></div>
                         <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
                             <span>2.</span>
                         </div>
@@ -373,12 +373,11 @@
             </div>
 
             <div class="media-38289">
-                <a href="property-single.html" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
+                <a href="{{  route('admin.property.show', 1) }}" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
                         class="img-fluid"></a>
                 <div class="text">
                     <div class="d-flex justify-content-between mb-3">
-                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen
-"></span> <span>2911 Sq Ft.</span></div>
+                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span> <span>2911 Sq Ft.</span></div>
                         <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
                             <span>2.</span>
                         </div>
@@ -395,12 +394,11 @@
             </div>
 
             <div class="media-38289">
-                <a href="property-single.html" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
+                <a href="{{  route('admin.property.show', 1) }}" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
                         class="img-fluid"></a>
                 <div class="text">
                     <div class="d-flex justify-content-between mb-3">
-                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen
-"></span> <span>2911 Sq Ft.</span></div>
+                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span> <span>2911 Sq Ft.</span></div>
                         <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
                             <span>2.</span>
                         </div>
@@ -422,6 +420,7 @@
     </div>
 </div>
 
+@if(!(\Auth::check()))
 <div class="site-section">
     <div class="container">
         <div class="row justify-content-center mb-5">
@@ -535,6 +534,8 @@
         </div>
     </div>
 </div>
+
+@endif
 
 @stop
 

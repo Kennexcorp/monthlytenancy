@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use InfyOm\Generator\Utils\ResponseUtil;
-use Response;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * @SWG\Swagger(
@@ -18,21 +18,12 @@ use Response;
  */
 class AppBaseController extends Controller
 {
-    public function sendResponse($result, $message)
-    {
-        return Response::json(ResponseUtil::makeResponse($message, $result));
+    public function rerouteLogin() {
+        return redirect()->route('auth.login');
     }
 
-    public function sendError($error, $code = 404)
-    {
-        return Response::json(ResponseUtil::makeError($error), $code);
-    }
-
-    public function sendSuccess($message)
-    {
-        return Response::json([
-            'success' => true,
-            'message' => $message
-        ], 200);
+    public function logout() {
+        Auth::logout();
+        return redirect()->route('auth.login');
     }
 }

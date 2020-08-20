@@ -48,7 +48,7 @@
         <div class="col-md-4 mb-5">
           <div class="person-29381">
             <div class="media-39912">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+              <img src="{{ asset('img/frontend/images/person_1.jpg') }}" alt="Image" class="img-fluid">
             </div>
             <h3><a href="#">Steven Owoloku Amama</a></h3>
             <span class="meta d-block mb-4">MD</span>

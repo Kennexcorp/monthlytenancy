@@ -10,7 +10,7 @@ class AppController extends Controller
     //
     public function __construct()
     {
-
+        $this->middleware('auth')->except(['about', 'contact', 'home']);
     }
 
     public function home() {

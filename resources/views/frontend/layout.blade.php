@@ -48,7 +48,7 @@
 
                         <div class="col-3 ">
                             <div class="site-logo">
-                                <a href="{{ route('welcome') }}">ATP</a>
+                                <a href="{{ route('member.home') }}">ATP</a>
                             </div>
                         </div>
 
@@ -63,13 +63,20 @@
 
                             <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
                                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                                    <li class="active"><a href="{{ route('welcome') }}" class="nav-link">Home</a></li>
+                                    <li @if(Route::is('member.home'))class="active" @endif><a href="{{ route('member.home') }}" class="nav-link">Home</a>
+                                    </li>
+                                    @if(\Auth::check())
                                     <li><a href="agents.html" class="nav-link">Agents</a></li>
                                     <li><a href="property.html" class="nav-link">Property</a></li>
-                                    <li><a href="{{ route('about') }}" class="nav-link">About</a></li>
-                                    <li><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
-                                    <li><a href="login.html" class="nav-link">Login</a></li>
-                                    <li><a href="signup.html" class="nav-link">Register</a></li>
+                                    <li @if(Route::is('profile.edit'))class="active" @endif ><a href="{{ route('profile.edit', \Auth::user()->id) }}" class="nav-link">My Profile</a></li>
+                                    <li><a href="{{ route('logout') }}" class="nav-link">Logout</a></li>
+                                    @else
+                                    <li @if(Route::is('about'))class="active" @endif><a href="{{ route('about') }}" class="nav-link">About</a></li>
+                                    <li @if(Route::is('contact'))class="active" @endif><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
+                                    <li @if(Route::is('auth.login'))class="active" @endif><a href="{{ route('auth.login') }}" class="nav-link">Login</a></li>
+                                    <li @if(Route::is('auth.signup'))class="active" @endif><a href="{{ route('auth.signup') }}" class="nav-link">Register</a></li>
+                                    @endif
+
                                 </ul>
                             </nav>
                         </div>
@@ -84,14 +91,15 @@
 
 
 
+            @if(!(\Auth::check()))
             <footer class="site-footer">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
                             <h3 class="text-white h5 mb-3">Subscribe</h3>
-                            <form action="" class="d-flex">
-                                <input type="text" class="form-control mr-3" placeholder="Enter your email">
-                                <input type="submit" class="btn btn-primary text-white" value="Send Now">
+                            <form action="" class="">
+                                <input type="text" class="form-control mr-3 col" placeholder="Enter your email">
+                                <input type="submit" class="btn btn-primary text-white col mt-4" value="Send Now">
                             </form>
                         </div>
                         <div class="col-md-3 ml-auto">
@@ -129,6 +137,7 @@
                     </div>
                 </div>
             </footer>
+            @endif
 
         </div>
 

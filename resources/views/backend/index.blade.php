@@ -1,7 +1,7 @@
 @extends(('layouts/compact_menu'))
 {{-- Page title --}}
 @section('title')
-    Dashboard-2
+    Dashboard
     @parent
 @stop
 {{-- page level styles --}}

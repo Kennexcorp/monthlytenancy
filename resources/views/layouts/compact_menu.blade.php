@@ -359,9 +359,9 @@ z-index: 999999">
                                 <div class="user-settings no-bg">
                                     <button type="button" class="btn btn-default no-bg micheal_btn"
                                         data-toggle="dropdown">
-                                        <img src="{{asset('img/admin.jpg')}}"
+                                        <img src="https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584_960_720.png"
                                             class="admin_img2 img-thumbnail rounded-circle avatar-img" alt="avatar">
-                                        <strong>Micheal</strong>
+                                        <strong>{{ auth()->user()->name }}</strong>
                                         <span class="fa fa-sort-down white_bg"></span>
                                     </button>
                                     <div class="dropdown-menu admire_admin">
@@ -378,7 +378,7 @@ z-index: 999999">
 
                                         <a class="dropdown-item" href="lockscreen"><i class="fa fa-lock"></i>
                                             Lock Screen</a>
-                                        <a class="dropdown-item" href="login2"><i class="fa fa-sign-out"></i>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"><i class="fa fa-sign-out"></i>
                                             Log Out</a>
                                     </div>
                                 </div>
@@ -403,8 +403,8 @@ z-index: 999999">
                                 <div class="user-wrapper">
                                     <a class="user-link" href="#">
                                         <img class="media-object img-thumbnail user-img rounded-circle admin_img3"
-                                            alt="User Picture" src="{{asset('img/admin.jpg')}}">
-                                        <p class="user-info menu_hide">Welcome Micheal</p>
+                                            alt="User Picture" src="https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584_960_720.png">
+                                        <p class="user-info menu_hide">Welcome {{ auth()->user()->name }}</p>
                                     </a>
                                 </div>
                             </div>

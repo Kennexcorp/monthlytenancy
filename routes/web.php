@@ -15,13 +15,61 @@ include('web_builder.php');
 |
 */
 
-Route::get('/', 'Frontend\AppController@home')->name('welcome');
-Route::get('/about', 'Frontend\AppController@about')->name('about');
-Route::get('/contact', 'Frontend\AppController@contact')->name('contact');
+Route::get('/login', 'AppBaseController@rerouteLogin')->name('login');
+Route::get('/logout', 'AppBaseController@logout')->name('logout');
 
-Route::get('users', 'Admire2Controller@index');
+Route::namespace('Frontend')->group(function () {
+    // Controllers Within The "App\Http\Controllers\Admin" Namespace
 
-Route::post('users', 'Admire2Controller@store');
+    Route::get('/about', 'AppController@about')->name('about');
+    Route::get('/contact', 'AppController@contact')->name('contact');
+
+    Route::name('member.')->group(function () {
+        Route::get('/', 'AppController@home')->name('home');
+    });
+
+    Route::resource('profile', 'ProfileController')->only(['edit']);
+    Route::post('profile/{id}/{type}', 'ProfileController@update')->name('profile.update');
+
+    Route::name('auth.')->group(function () {
+
+        Route::get('/login', 'AuthController@login')->name('login');
+        Route::post('/authenticate', 'AuthController@authenticate')->name('login.authenticate');
+        Route::get('/signup', 'AuthController@signup')->name('signup');
+        Route::post('/register', 'AuthController@register')->name('register');
+
+    });
+
+});
+// Route::resource('property', 'PropertyController')->only(['index', 'show']);
+
+Route::namespace('Backend')->group(function () {
+    // Controllers Within The "App\Http\Controllers\Admin" Namespace
+
+    Route::prefix('admin')->group(function () {
+
+        Route::get('/login', 'AuthController@login')->name('login');
+        Route::name('admin.')->group(function () {
+            Route::get('/', 'AppController@home')->name('home');
+            Route::resource('property', 'PropertyController');
+            Route::resource('users', 'UserController');
+            Route::resource('settings', 'SettingsController');
+
+            Route::name('auth.')->group(function () {
+
+
+                Route::post('/authenticate', 'AuthController@authenticate')->name('login.authenticate');
+
+            });
+        });
+
+    });
+
+});
+
+// Route::get('users', 'Admire2Controller@index');
+
+// Route::post('users', 'Admire2Controller@store');
 
 //crud builder routes
 // Route::get('builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder')->name('io_generator_builder');
@@ -40,4 +88,4 @@ Route::post('users', 'Admire2Controller@store');
 // )->name('io_generator_builder_generate_from_file');
 
 // catch all routes
-Route::get('{name?}', 'Admire2Controller@showView');
+// Route::get('{name?}', 'Admire2Controller@showView');
