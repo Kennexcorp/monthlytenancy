@@ -18,6 +18,7 @@ class CreatePropertiesTable extends Migration
             $table->foreignId('landlord_id')->constrained()->cascadeOnDelete();
             $table->string('type');
             $table->string('units');
+            $table->string('unit_price');
             $table->string('toilets');
             $table->string('bathrooms');
             $table->string('rooms');

@@ -12,7 +12,7 @@
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-7">
                     <!-- <span class="h4 text-primary mb-4 d-block">&#8358;1,570,000</span> -->
-                    <h1 class="mb-2">Beautiful Houses In Nigeria</h1>
+                    <h1 class="mb-2">The Monthly Tenancy Plan<br> &nbsp; Alternative Realtors</h1>
                     <p class="text-center mb-5"><span
                             class="small address d-flex align-items-center justify-content-center"> <span
                                 class="icon-room mr-3 text-primary"></span> <span>Abuja,
@@ -45,8 +45,6 @@
             <div class="realestate-filter-wrap nav">
                 <a href="#for-rent" class="active" data-toggle="tab" id="rent-tab" aria-controls="rent"
                     aria-selected="true">For Rent</a>
-                <a href="#for-sale" class="" data-toggle="tab" id="sale-tab" aria-controls="sale"
-                    aria-selected="false">For Sale</a>
             </div>
         </div>
     </div>
@@ -55,75 +53,6 @@
         <div class="container tab-content">
             <div class="tab-pane active" id="for-rent" role="tabpanel" aria-labelledby="rent-tab">
 
-                <div class="row">
-                    <div class="col-md-4 form-group">
-                        <select name="" id="" class="form-control w-100">
-                            <option value="">All Types</option>
-                            <option value="">Townhouses</option>
-                            <option value="">Duplexes</option>
-                            <option value="">Quadplexes</option>
-                            <option value="">Condominiums</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <input type="text" class="form-control" placeholder="Title">
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <input type="text" class="form-control" placeholder="Address">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4 form-group">
-                        <select name="" id="" class="form-control w-100">
-                            <option value="">Any Bedrooms</option>
-                            <option value="">0</option>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3+</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <select name="" id="" class="form-control w-100">
-                            <option value="">Any Bathrooms</option>
-                            <option value="">0</option>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3+</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <div class="row">
-                            <div class="col-md-6 form-group">
-                                <select name="" id="" class="form-control w-100">
-                                    <option value="">Min Price</option>
-                                    <option value="">&#8358;100</option>
-                                    <option value="">&#8358;200</option>
-                                    <option value="">&#8358;300</option>
-                                    <option value="">&#8358;400</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <select name="" id="" class="form-control w-100">
-                                    <option value="">Max Price</option>
-                                    <option value="">&#8358;25,000</option>
-                                    <option value="">&#8358;50,000</option>
-                                    <option value="">&#8358;75,000</option>
-                                    <option value="">&#8358;100,000</option>
-                                    <option value="">&#8358;100,000,000</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <input type="submit" class="btn btn-black py-3 btn-block" value="Submit">
-                    </div>
-                </div>
-
-            </div>
-            <div class="tab-pane" id="for-sale" role="tabpanel" aria-labelledby="sale-tab">
                 <div class="row">
                     <div class="col-md-4 form-group">
                         <select name="" id="" class="form-control w-100">
@@ -237,9 +166,9 @@
             <div class="col-lg-5 ml-auto">
                 <h3 class="heading-29201">About Us</h3>
 
-                <p class="mb-5"> The Alternative Tenancy Project hosted by First Alternative Realtors is a
-                    monthly housing
-                    scheme.</p>
+                <p class="mb-5"> First Alternative Realtors is a real estate company which is aimed at making accommodation simple affordable and
+                comfortable, our mission is to provide accommodations affordable and provide other add on services for the comfort of
+                the tenants.</p>
 
                 <div class="service-39290 d-flex align-items-start mb-5">
                     <div class="media-icon mr-4">
@@ -262,7 +191,7 @@
                     </div>
                     <div class="text">
                         <h3>Vision</h3>
-                        <p>To provide maximum affordability, flexibility, and comfort for Nigerians in areas
+                        <p>To provide maximum affordability, simplicity, and comfort for Nigerians in areas
                             where accommodation is really costly and also with the option of pairing
                             included the affordability of houses would be easier.</p>
                     </div>
@@ -287,132 +216,29 @@
 
 
         <div class="owl-carousel nonloop-block-13">
-            <div class="media-38289">
-                <a href="{{  route('admin.property.show', 1) }}" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
-                        class="img-fluid"></a>
-                <div class="text">
-                    <div class="d-flex justify-content-between mb-3">
-                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span> <span>2911 Sq Ft.</span></div>
-                        <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                            <span>2.</span>
-                        </div>
-                        <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                            <span>2</span>
-                        </div>
-                    </div>
-                    <h3 class="mb-3"><a href="#">&#8358;570,000</a></h3>
-                    <span class="d-block small address d-flex align-items-center"> <span
-                            class="icon-room mr-3 text-primary"></span> <span>156/10 Sapling Street,
-                            Harrison, ACT
-                            2914</span></span>
-                </div>
-            </div>
+            {{-- {{ $properties->count() }} --}}
+            @foreach($properties as $property)
 
-            <div class="media-38289">
-                <a href="{{  route('admin.property.show', 1) }}" class="d-block"><img src="{{ asset('img/frontend/images/img_2.jpg') }}" alt="Image"
-                        class="img-fluid"></a>
-                <div class="text">
-                    <div class="d-flex justify-content-between mb-3">
-                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span> <span>2911 Sq Ft.</span></div>
-                        <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                            <span>2.</span>
+                <div class="media-38289">
+                    <a href="{{  route('admin.property.show', 1) }}" class="d-block"><img
+                            src="{{ Storage::url($property->propertyImages()->first()->image_path) }}" alt="Image" class="img-fluid"></a>
+                    <div class="text">
+                        <div class="d-flex justify-content-between mb-3">
+                            <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span> <span>{{ $property->units }} units.</span></div>
+                            <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
+                                <span>{{ $property->rooms }}</span>
+                            </div>
+                            <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
+                                <span>{{  $property->bathrooms }}</span>
+                            </div>
                         </div>
-                        <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                            <span>2</span>
-                        </div>
+                        <h3 class="mb-3"><a href="#">&#8358;{{ $property->unit_price }}</a>/month</h3>
+                        <span class="d-block small address d-flex align-items-center"> <span class="icon-room mr-3 text-primary"></span>
+                            <span>{{ $property->landlord->address }}</span></span>
                     </div>
-                    <h3 class="mb-3"><a href="#">&#8358;1,570,000</a></h3>
-                    <span class="d-block small address d-flex align-items-center"> <span
-                            class="icon-room mr-3 text-primary"></span> <span>156/10 Sapling Street,
-                            Harrison, ACT
-                            2914</span></span>
                 </div>
-            </div>
+            @endforeach
 
-            <div class="media-38289">
-                <a href="{{  route('admin.property.show', 1) }}" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
-                        class="img-fluid"></a>
-                <div class="text">
-                    <div class="d-flex justify-content-between mb-3">
-                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span> <span>2911 Sq Ft.</span></div>
-                        <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                            <span>2.</span>
-                        </div>
-                        <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                            <span>2</span>
-                        </div>
-                    </div>
-                    <h3 class="mb-3"><a href="#">&#8358;980,000</a></h3>
-                    <span class="d-block small address d-flex align-items-center"> <span
-                            class="icon-room mr-3 text-primary"></span> <span>156/10 Sapling Street,
-                            Harrison, ACT
-                            2914</span></span>
-                </div>
-            </div>
-
-
-            <div class="media-38289">
-                <a href="{{  route('admin.property.show', 1) }}" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
-                        class="img-fluid"></a>
-                <div class="text">
-                    <div class="d-flex justify-content-between mb-3">
-                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span> <span>2911 Sq Ft.</span></div>
-                        <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                            <span>2.</span>
-                        </div>
-                        <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                            <span>2</span>
-                        </div>
-                    </div>
-                    <h3 class="mb-3"><a href="#">&#8358;570,000</a></h3>
-                    <span class="d-block small address d-flex align-items-center"> <span
-                            class="icon-room mr-3 text-primary"></span> <span>156/10 Sapling Street,
-                            Harrison, ACT
-                            2914</span></span>
-                </div>
-            </div>
-
-            <div class="media-38289">
-                <a href="{{  route('admin.property.show', 1) }}" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
-                        class="img-fluid"></a>
-                <div class="text">
-                    <div class="d-flex justify-content-between mb-3">
-                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span> <span>2911 Sq Ft.</span></div>
-                        <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                            <span>2.</span>
-                        </div>
-                        <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                            <span>2</span>
-                        </div>
-                    </div>
-                    <h3 class="mb-3"><a href="#">&#8358;1,570,000</a></h3>
-                    <span class="d-block small address d-flex align-items-center"> <span
-                            class="icon-room mr-3 text-primary"></span> <span>156/10 Sapling Street,
-                            Harrison, ACT
-                            2914</span></span>
-                </div>
-            </div>
-
-            <div class="media-38289">
-                <a href="{{  route('admin.property.show', 1) }}" class="d-block"><img src="{{ asset('img/frontend/images/img_1.jpg') }}" alt="Image"
-                        class="img-fluid"></a>
-                <div class="text">
-                    <div class="d-flex justify-content-between mb-3">
-                        <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span> <span>2911 Sq Ft.</span></div>
-                        <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                            <span>2.</span>
-                        </div>
-                        <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                            <span>2</span>
-                        </div>
-                    </div>
-                    <h3 class="mb-3"><a href="#">&#8358;980,000</a></h3>
-                    <span class="d-block small address d-flex align-items-center"> <span
-                            class="icon-room mr-3 text-primary"></span> <span>156/10 Sapling Street,
-                            Harrison, ACT
-                            2914</span></span>
-                </div>
-            </div>
 
         </div>
 

@@ -161,6 +161,12 @@ Property
 
                                 </div>
                                 <div class="col-lg input_field_sections">
+                                    <h5>Price per unit (Monthly)</h5>
+                                
+                                    <input type="number" class="form-control" name="price" required />
+                                
+                                </div>
+                                <div class="col-lg input_field_sections">
                                     <h5>No of Toilets</h5>
 
                                     <input type="number" class="form-control" name="toilets"  required/>

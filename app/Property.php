@@ -8,14 +8,14 @@ class Property extends Model
 {
     //
     protected $fillable = [
-        'type', 'units', 'toilets', 'bathrooms', 'other_description', 'rooms',
+        'type', 'units', 'toilets', 'bathrooms', 'other_description', 'rooms', 'unit_price', 'landlord_id',
     ];
 
-    public function landLord() {
+    public function landlord() {
         return $this->belongsTo(Landlord::class);
     }
 
-    public function houseImages() {
+    public function propertyImages() {
         return $this->hasMany(PropertyImages::class);
     }
 }

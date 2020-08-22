@@ -162,6 +162,7 @@ Property
                                         <tr role="row">
                                             <th class="sorting wid-20" tabindex="0" rowspan="1" colspan="1">Type</th>
                                             <th class="sorting wid-20" tabindex="0" rowspan="1" colspan="1">Units</th>
+                                            <th class="sorting wid-20" tabindex="0" rowspan="1" colspan="1">Price (Per unit)</th>
                                             <th class="sorting wid-25" tabindex="0" rowspan="1" colspan="1">Toilets</th>
                                             <th class="sorting wid-15" tabindex="0" rowspan="1" colspan="1">Bathrooms
                                             </th>
@@ -177,11 +178,15 @@ Property
                                         <tr role="row" class="even">
                                             <td>{{ $property->type  }}</td>
                                             <td>{{ $property->units  }}</td>
+                                            <td>{{ $property->unit_price  }}</td>
                                             <td>{{ $property->toilets  }}</td>
                                             <td class="center">{{ $property->bathrooms }}</td>
                                             <td class="center">{{ $property->rooms }}</td>
                                             <td class="center">{{ $property->other_description }}</td>
-                                            <td class="center">{{ $property->images }}</td>
+                                            <td class="center">@foreach($property->propertyImages as $image)
+                                                <img class="media-object img-thumbnail user-img rounded-circle admin_img3"
+                                        src="{{ Storage::url($image->image_path) }}">
+                                            @endforeach</td>
                                             <td>
                                                 <form method="POST"
                                                     action="{{ route('admin.property.destroy', $property->id) }}">

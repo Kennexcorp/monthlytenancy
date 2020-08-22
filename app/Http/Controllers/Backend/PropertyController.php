@@ -76,8 +76,14 @@ class PropertyController extends Controller
                 'toilets' => $request->toilets,
                 'bathrooms' => $request->bathrooms,
                 'rooms' => $request->rooms,
+                'unit_price' => $request->price,
                 'other_description' => $request->description,
             ]);
+
+            if($request->hasfile('images'))
+                {
+                    $this->addImages($landlord->property(), $request->file('images'));
+                }
 
         } else {
             $result = DB::transaction(function () use ($request) {
@@ -97,7 +103,13 @@ class PropertyController extends Controller
                 'bathrooms' => $request->bathrooms,
                 'rooms' => $request->rooms,
                 'other_description' => $request->description,
+                'unit_price' => $request->price,
             ]);
+
+            if($request->hasfile('images'))
+            {
+                $this->addImages($property, $request->file('images'));
+            }
 
         });
         }
@@ -156,6 +168,11 @@ class PropertyController extends Controller
     {
         //
         // dd($request->toArray());
+        $request->validate([
+            'images[]' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+
         switch ($request->request_type) {
             case 'property':
                 # code...
@@ -166,7 +183,14 @@ class PropertyController extends Controller
                     'bathrooms' => $request->bathrooms,
                     'rooms' => $request->rooms,
                     'other_description' => $request->description,
+                    'unit_price' => $request->price,
                 ]);
+
+                if($request->hasfile('images'))
+                {
+                    $this->addImages($property, $request->file('images'));
+                }
+
                 break;
 
             case 'landlord':
@@ -205,7 +229,17 @@ class PropertyController extends Controller
         return back()->with('success', 'property deleted successfully');
     }
 
-    public function showProperties($id) {
+    public function addImages($property, $images) {
+        foreach($images as $file)
+        {
+            $name = time().'.'.$file->extension();
+            // $file->move(public_path().'/files/', $name);
+            $path = $file->storeAs('public/propertyImages', $name);
+            // $data->push(["path" => $path]);
+            $property->propertyImages()->create([
+                'image_path' => $path
+            ]);
+        }
 
     }
 }

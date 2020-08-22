@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Property;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
@@ -14,7 +15,8 @@ class AppController extends Controller
     }
 
     public function home() {
-        return view('frontend.home');
+        $properties = Property::all();
+        return view('frontend.home', compact('properties'));
     }
 
     public function about() {

@@ -14,7 +14,7 @@
                 <div class="col-lg-6">
                     <h4 class="nav_top_align skin_txt">
                         <i class="fa fa-file-o"></i>
-                        Blank
+                        Setup
                     </h4>
                 </div>
                 <div class="col-lg-6">
@@ -28,7 +28,7 @@
                         <li class="breadcrumb-item">
                             <a href="#">Users</a>
                         </li>
-                        <li class="breadcrumb-item active">Blank</li>
+                        <li class="breadcrumb-item active">Setup</li>
                     </ol>
                 </div>
             </div>
