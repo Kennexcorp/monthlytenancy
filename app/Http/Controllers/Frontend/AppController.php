@@ -18,7 +18,7 @@ class AppController extends Controller
 
     public function home() {
         $properties = Property::all();
-        $property = Property::all()->random();
+        $property = Property::all();
 
         $houseTypes = PropertyType::where('category', 'House')->get();
         return view('frontend.home', compact('properties', 'property', 'houseTypes'));
