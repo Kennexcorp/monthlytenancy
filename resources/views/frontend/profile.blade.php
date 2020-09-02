@@ -3,11 +3,13 @@
 
 <div class="ftco-blocks-cover-1">
     <div class="site-section-cover overlay" data-stellar-background-ratio="0.5"
-        style="background-image: url({{ asset('img/frontend/images/hero_1.jpg') }})">
+        style="background-image: url({{ Storage::url($image_path) }})">
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
 
-
+                <div class="col-md-7">
+                    <h1 class="mb-2">My Profile <br> & Other Personal Information</h1>
+                </div>
             </div>
         </div>
     </div>
@@ -45,8 +47,8 @@
                                             Information</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="work-tab" data-toggle="tab" href="#work"
-                                            role="tab" aria-controls="work" aria-selected="false">Work
+                                        <a class="nav-link" id="work-tab" data-toggle="tab" href="#work" role="tab"
+                                            aria-controls="work" aria-selected="false">Work
                                             Information</a>
                                     </li>
                                     <li class="nav-item">
@@ -91,8 +93,8 @@
 
                                                     <div class="form-group">
                                                         <label for="valid_id">Valid means of Identification</label>
-                                                        <input type="file" class="form-control" id="valid_id" name="valid_id"
-                                                            placeholder="Age">
+                                                        <input type="file" class="form-control" id="valid_id"
+                                                            name="valid_id" placeholder="Age">
                                                     </div>
 
                                                     <button type="submit" class="btn btn-primary">Update</button>
@@ -100,8 +102,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="work" role="tabpanel"
-                                        aria-labelledby="work-tab">
+                                    <div class="tab-pane fade" id="work" role="tabpanel" aria-labelledby="work-tab">
                                         <div class="d-flex px-1 w-100 align-items-center text-left pt-3">
                                             <div class="w-100">
                                                 <form action="{{ route('profile.update',[ $user->id, 'work']) }}"

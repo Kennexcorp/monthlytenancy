@@ -2,25 +2,31 @@
 @section('content')
 <div class="ftco-blocks-cover-1">
     <div class="site-section-cover overlay" data-stellar-background-ratio="0.5"
-        style="background-image: url('images/hero_1.jpg')">
+        style="background-image: url({{ Storage::url($property->propertyImages()->first()->image_path) }})">
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-7">
-                    <span class="h4 text-primary mb-4 d-block">&#8358;1,570,000</span>
-                    <h1 class="mb-2">Beautiful Houses In Nigeria</h1>
+                    <span class="h4 text-primary mb-4 d-block">&#8358;{{ $property->unit_price }}</span>
+                    <h1 class="mb-2">{{ $property->landlord->type }} ({{ $property->type }})</h1>
                     <p class="text-center mb-5"><span
                             class="small address d-flex align-items-center justify-content-center"> <span
-                                class="icon-room mr-3 text-primary"></span> <span>Abuja, Nigeria</span></span></p>
+                                class="icon-room mr-3 text-primary"></span> <span>{{ $property->landlord->state }},
+                                Nigeria</span></span></p>
 
                     <div class="d-flex media-38289 justify-content-around mb-5">
                         <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span>
-                            <span>2911 Sq Ft.</span></div>
+                            <span>{{ $property->units }}</span></div>
                         <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                            <span>2.</span></div>
+                            <span>{{ $property->rooms }}</span></div>
                         <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                            <span>2</span></div>
+                            <span>{{ $property->bathrooms }}</span></div>
                     </div>
+                    @auth
                     <p><a href="#" class="btn btn-primary text-white px-4 py-3">Rent Now</a></p>
+                    <p><a href="{{ route('contact.property', $property->id) }}" class="btn btn-primary text-white px-4 py-3">Request Inspection</a></p>
+                    @else
+                    <p><a href="{{ route('contact.property', $property->id) }}" class="btn btn-primary text-white px-4 py-3">Request Inspection</a></p>
+                    @endauth
                 </div>
             </div>
         </div>
@@ -73,7 +79,6 @@
 <div class="site-section bg-black">
     <div class="container">
 
-
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
                 <h3 class="heading-29201 text-center text-white">More Related Properties</h3>
@@ -83,152 +88,40 @@
         </div>
 
         <div class="row">
+            @foreach($properties as $prop)
+            <div class="col-md-4 mb-5">
+                <div class="media-38289">
+                    <a href="{{  route('property.viewProperty', $prop->id) }}" class="d-block"><img
+                            src="{{ Storage::url($prop->propertyImages()->first()->image_path) }}" alt="Image"
+                            class="img-fluid"></a>
+                    <div class="text">
+                        <div class="d-flex justify-content-between mb-3">
+                            <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span>
+                                <span>{{ $prop->units }}</span></div>
+                            <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
+                                <span>{{ $prop->rooms }}</span></div>
+                            <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
+                                <span>{{ $prop->bathrooms }}</span></div>
+                        </div>
+                        <h3 class="mb-3"><a href="#">&#8358;{{ $prop->unit_price }}</a></h3>
+                        <span class="d-block small address d-flex align-items-center"> <span
+                                class="icon-room mr-3 text-primary"></span>
+                            <span>{{ $prop->landlord->address }}</span></span>
+                        <div class="row">
+                            @auth
+                            <p><a href="#" class="btn btn-primary text-white px-4 py-3">Rent Now</a></p>&nbsp;
+                            <p><a href="{{ route('contact.property', $prop->id) }}" class="btn btn-secondary text-white px-4 py-3">Request Inspection</a>
+                            </p>&nbsp;
+                            @else
+                            <p><a href="{{ route('contact.property', $prop->id) }}" class="btn btn-primary text-white px-4 py-3">Request Inspection</a>
+                            </p>
+                            @endauth
 
-            <div class="col-md-4 mb-5">
-                <div class="media-38289">
-                    <a href="property-single.html" class="d-block"><img src="images/img_1.jpg" alt="Image"
-                            class="img-fluid"></a>
-                    <div class="text">
-                        <div class="d-flex justify-content-between mb-3">
-                            <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span>
-                                <span>2911 Sq Ft.</span></div>
-                            <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                                <span>2.</span></div>
-                            <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                                <span>2</span></div>
-                        </div>
-                        <h3 class="mb-3"><a href="#">&#8358;570,000</a></h3>
-                        <span class="d-block small address d-flex align-items-center"> <span
-                                class="icon-room mr-3 text-primary"></span> <span>156/10 Sapling Street, Harrison, ACT
-                                2914</span></span>
-                        <div class="row">
-                            <div class="col-12 btn btn-primary">Rent Now</div>&nbsp;
-                            <div class="col-12 btn btn-secondary">Request Inspection</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-5">
-                <div class="media-38289">
-                    <a href="property-single.html" class="d-block"><img src="images/img_2.jpg" alt="Image"
-                            class="img-fluid"></a>
-                    <div class="text">
-                        <div class="d-flex justify-content-between mb-3">
-                            <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span>
-                                <span>2911 Sq Ft.</span></div>
-                            <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                                <span>2.</span></div>
-                            <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                                <span>2</span></div>
-                        </div>
-                        <h3 class="mb-3"><a href="#">&#8358;1,570,000</a></h3>
-                        <span class="d-block small address d-flex align-items-center"> <span
-                                class="icon-room mr-3 text-primary"></span> <span>156/10 Sapling Street, Harrison, ACT
-                                2914</span></span>
-                        <div class="row">
-                            <div class="col-12 btn btn-primary">Rent Now</div>&nbsp;
-                            <div class="col-12 btn btn-secondary">Request Inspection</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="media-38289">
-                    <a href="property-single.html" class="d-block"><img src="images/img_3.jpg" alt="Image"
-                            class="img-fluid"></a>
-                    <div class="text">
-                        <div class="d-flex justify-content-between mb-3">
-                            <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span>
-                                <span>2911 Sq Ft.</span></div>
-                            <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                                <span>2.</span></div>
-                            <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                                <span>2</span></div>
-                        </div>
-                        <h3 class="mb-3"><a href="#">&#8358;980,000</a></h3>
-                        <span class="d-block small address d-flex align-items-center"> <span
-                                class="icon-room mr-3 text-primary"></span> <span>156/10 Sapling Street, Harrison, ACT
-                                2914</span></span>
-                        <div class="row">
-                            <div class="col-12 btn btn-primary">Rent Now</div>&nbsp;
-                            <div class="col-12 btn btn-secondary">Request Inspection</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-5">
-                <div class="media-38289">
-                    <a href="property-single.html" class="d-block"><img src="images/img_1.jpg" alt="Image"
-                            class="img-fluid"></a>
-                    <div class="text">
-                        <div class="d-flex justify-content-between mb-3">
-                            <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span>
-                                <span>2911 Sq Ft.</span></div>
-                            <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                                <span>2.</span></div>
-                            <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                                <span>2</span></div>
-                        </div>
-                        <h3 class="mb-3"><a href="#">&#8358;570,000</a></h3>
-                        <span class="d-block small address d-flex align-items-center"> <span
-                                class="icon-room mr-3 text-primary"></span> <span>156/10 Sapling Street, Harrison, ACT
-                                2914</span></span>
-                        <div class="row">
-                            <div class="col-12 btn btn-primary">Rent Now</div>&nbsp;
-                            <div class="col-12 btn btn-secondary">Request Inspection</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="media-38289">
-                    <a href="property-single.html" class="d-block"><img src="images/img_2.jpg" alt="Image"
-                            class="img-fluid"></a>
-                    <div class="text">
-                        <div class="d-flex justify-content-between mb-3">
-                            <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span>
-                                <span>2911 Sq Ft.</span></div>
-                            <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                                <span>2.</span></div>
-                            <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                                <span>2</span></div>
-                        </div>
-                        <h3 class="mb-3"><a href="#">&#8358;1,570,000</a></h3>
-                        <span class="d-block small address d-flex align-items-center"> <span
-                                class="icon-room mr-3 text-primary"></span> <span>156/10 Sapling Street, Harrison, ACT
-                                2914</span></span>
-                        <div class="row">
-                            <div class="col-12 btn btn-primary">Rent Now</div>&nbsp;
-                            <div class="col-12 btn btn-secondary">Request Inspection</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="media-38289">
-                    <a href="property-single.html" class="d-block"><img src="images/img_3.jpg" alt="Image"
-                            class="img-fluid"></a>
-                    <div class="text">
-                        <div class="d-flex justify-content-between mb-3">
-                            <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span>
-                                <span>2911 Sq Ft.</span></div>
-                            <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                                <span>2.</span></div>
-                            <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                                <span>2</span></div>
-                        </div>
-                        <h3 class="mb-3"><a href="#">&#8358;980,000</a></h3>
-                        <span class="d-block small address d-flex align-items-center"> <span
-                                class="icon-room mr-3 text-primary"></span> <span>156/10 Sapling Street, Harrison, ACT
-                                2914</span></span>
-                        <div class="row">
-                            <div class="col-12 btn btn-primary">Rent Now</div>&nbsp;
-                            <div class="col-12 btn btn-secondary">Request Inspection</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

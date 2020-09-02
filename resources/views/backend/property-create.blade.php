@@ -86,9 +86,10 @@ Property
 
                                     {{-- <input type="text" class="form-control" name="default"  /> --}}
                                     <select class="form-control" name="property_type" required>
-                                        <option>Select Type</option>
-                                        <option>Estate</option>
-                                        <option>Single</option>
+                                        <option disabled selected hidden>Select Type</option>
+                                        @foreach($propertyTypes as $type)
+                                        <option>{{ $type->value }}</option>
+                                        @endforeach
                                     </select>
 
                                 </div>
@@ -101,7 +102,7 @@ Property
 
                                     {{-- <input type="text" class="form-control" name="default"  /> --}}
                                     <select class="form-control" name="state" required>
-                                        <option>Select State</option>
+                                        <option disabled hidden selected>Select State</option>
                                         @foreach($states as $state)
                                         <option>{{ $state['state'] }}</option>
                                         @endforeach
@@ -115,7 +116,8 @@ Property
 
                                     {{-- <input type="tel" class="form-control" name="default"  /> --}}
                                     <select class="form-control" name="lga" required>
-                                        <option>Select LGA</option>
+                                        <option disabled hidden selected>Select LGA</option>
+                                        <option>Everywhere</option>
                                     </select>
 
                                 </div>
@@ -145,7 +147,10 @@ Property
 
                                     {{-- <input type="text" class="form-control" name="default"  /> --}}
                                     <select class="form-control" name="house_type" required>
-                                        <option>Select Type</option>
+                                       <option disabled selected hidden>Select Type</option>
+                                        @foreach($houseTypes as $type)
+                                        <option>{{ $type->value }}</option>
+                                        @endforeach
                                     </select>
 
                                 </div>
@@ -162,9 +167,9 @@ Property
                                 </div>
                                 <div class="col-lg input_field_sections">
                                     <h5>Price per unit (Monthly)</h5>
-                                
+
                                     <input type="number" class="form-control" name="price" required />
-                                
+
                                 </div>
                                 <div class="col-lg input_field_sections">
                                     <h5>No of Toilets</h5>

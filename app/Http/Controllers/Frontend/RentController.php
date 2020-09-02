@@ -1,13 +1,12 @@
 <?php
 
-
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\PropertyType;
+use App\Rent;
 use Illuminate\Http\Request;
 
-class SettingsController extends Controller
+class RentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,7 @@ class SettingsController extends Controller
     public function index()
     {
         //
-        $propertyTypes = PropertyType::all();
-        // dd($propertyTypes);
-        return view('backend.settings-index', compact('propertyTypes'));
+        return view('frontend.my-rents');
     }
 
     /**
@@ -41,38 +38,15 @@ class SettingsController extends Controller
     public function store(Request $request)
     {
         //
-        switch ($request->type) {
-            case 'propertyTypes':
-                # code...
-                try {
-                    //code...
-                    PropertyType::create([
-                        'category' => $request->category,
-                        'value' => $request->value
-                    ]);
-
-                } catch (\Throwable $th) {
-                    //throw $th;
-                    report($th);
-                }
-
-                return back()->with('success', 'Type added successfully');
-
-                break;
-
-            default:
-                # code...
-                break;
-        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Rent  $rent
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Rent $rent)
     {
         //
     }
@@ -80,10 +54,10 @@ class SettingsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Rent  $rent
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Rent $rent)
     {
         //
     }
@@ -92,10 +66,10 @@ class SettingsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Rent  $rent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Rent $rent)
     {
         //
     }
@@ -103,10 +77,10 @@ class SettingsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Rent  $rent
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Rent $rent)
     {
         //
     }

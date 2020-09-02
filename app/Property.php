@@ -18,4 +18,8 @@ class Property extends Model
     public function propertyImages() {
         return $this->hasMany(PropertyImages::class);
     }
+
+    public function inspectionRequest() {
+        return $this->hasOne(InspectionRequest::class);
+    }
 }

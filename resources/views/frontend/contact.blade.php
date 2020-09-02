@@ -2,7 +2,7 @@
 @section('content')
 <div class="ftco-blocks-cover-1">
     <div class="site-section-cover overlay" data-stellar-background-ratio="0.5"
-        style="background-image: url({{ asset('img/frontend/images/hero_1.jpg') }})">
+        style="background-image: url({{  Storage::url($image_path)  }})">
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-7">
@@ -27,32 +27,41 @@
         </div>
         <div class="row">
             <div class="col-lg-8 mb-5">
-                <form action="#" method="post">
+                <form action="{{ route('admin.requests.store') }}" method="post">
+                    @csrf
+                    @if(isset($property))
+                    <div class="form-group row">
+                        <div class="col-md-12 mb-4 mb-lg-0">
+                            <input type="text" value="Request inspection for property @ {{ $property->landlord->name }}" class="form-control"  readonly>
+                            <input type="hidden" value="{{ $property->id }}" name="property">
+                        </div>
+                    </div>
+                    @endif
                     <div class="form-group row">
                         <div class="col-md-6 mb-4 mb-lg-0">
-                            <input type="text" class="form-control" placeholder="First name">
+                            <input type="text" class="form-control" placeholder="Name" name="name">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="First name">
+                            <input type="text" class="form-control" placeholder="Contact" name="contact">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="Email address">
+                            <input type="text" class="form-control" placeholder="Email address" name="email">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <textarea name="" id="" class="form-control" placeholder="Write your message." cols="30"
+                            <textarea name="message" class="form-control" placeholder="Write your message." cols="30"
                                 rows="10"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-6 mr-auto">
-                            <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5"
-                                value="Send Message">
+                        <div class="col-md-12 mr-auto">
+                            <button type="submit" class="btn btn-block btn-primary text-white py-3 px-5"
+                                >Send Message</button>
                         </div>
                     </div>
                 </form>

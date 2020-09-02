@@ -1,13 +1,12 @@
 <?php
 
-
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\PropertyType;
+use App\InspectionRequest;
 use Illuminate\Http\Request;
 
-class SettingsController extends Controller
+class InspectionRequestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,9 @@ class SettingsController extends Controller
     public function index()
     {
         //
-        $propertyTypes = PropertyType::all();
-        // dd($propertyTypes);
-        return view('backend.settings-index', compact('propertyTypes'));
+        $values = InspectionRequest::all();
+
+        return view('backend.requests-index', ['values'=> $values]);
     }
 
     /**
@@ -41,38 +40,26 @@ class SettingsController extends Controller
     public function store(Request $request)
     {
         //
-        switch ($request->type) {
-            case 'propertyTypes':
-                # code...
-                try {
-                    //code...
-                    PropertyType::create([
-                        'category' => $request->category,
-                        'value' => $request->value
-                    ]);
+        // dd($request);
+        $value = InspectionRequest::create([
+            'name' => $request->name,
+            'property_id' => $request->property,
+            'email' => $request->email,
+            'message' => $request->message,
+            'contact' => $request->contact,
+            'status' => 'Pending',
+        ]);
 
-                } catch (\Throwable $th) {
-                    //throw $th;
-                    report($th);
-                }
-
-                return back()->with('success', 'Type added successfully');
-
-                break;
-
-            default:
-                # code...
-                break;
-        }
+        return back()->with('success', 'Request sent Successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\InspectionRequest  $inspectionRequest
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(InspectionRequest $inspectionRequest)
     {
         //
     }
@@ -80,10 +67,10 @@ class SettingsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\InspectionRequest  $inspectionRequest
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(InspectionRequest $inspectionRequest)
     {
         //
     }
@@ -92,10 +79,10 @@ class SettingsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\InspectionRequest  $inspectionRequest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, InspectionRequest $inspectionRequest)
     {
         //
     }
@@ -103,10 +90,10 @@ class SettingsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\InspectionRequest  $inspectionRequest
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(InspectionRequest $inspectionRequest)
     {
         //
     }

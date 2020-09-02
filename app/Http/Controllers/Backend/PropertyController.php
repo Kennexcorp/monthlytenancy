@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Backend;
 use App\Property;
 use App\Http\Controllers\Controller;
 use App\Landlord;
+use App\PropertyType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 class PropertyController extends Controller
 {
+    private $propertyTypes;
+    private $houseTypes;
 
     public function __construct()
     {
@@ -19,6 +22,9 @@ class PropertyController extends Controller
         $this->middleware('permission:view-property', ['only' => ['show']]);
         $this->middleware('permission:delete-property', ['only' => ['destroy']]);
         $this->middleware('permission:create-property', ['only' => ['create']]);
+
+        $this->propertyTypes = PropertyType::where('category', 'Property')->get();
+        $this->houseTypes = PropertyType::where('category', 'House')->get();
     }
     /**
      * Display a listing of the resource.
@@ -54,7 +60,7 @@ class PropertyController extends Controller
 
         }
 
-        return view('backend.property-create')->with(['states' => $states]);
+        return view('backend.property-create')->with(['states' => $states, 'propertyTypes' => $this->propertyTypes, 'houseTypes' => $this->houseTypes]);
     }
 
     /**
@@ -129,6 +135,8 @@ class PropertyController extends Controller
     {
         //
         $value = Landlord::find($id)->with(['properties'])->first();
+        $propertyTypes = $this->propertyTypes;
+        $houseTypes = $this->houseTypes;
         $states = array();
         try {
             //code...
@@ -140,7 +148,7 @@ class PropertyController extends Controller
 
         }
 
-        return view('backend.property-show', compact('value', 'states'));
+        return view('backend.property-show', compact('value', 'states', 'propertyTypes', 'houseTypes'));
     }
 
     /**
@@ -154,7 +162,7 @@ class PropertyController extends Controller
         //
         $value = Property::find($id);
 
-        return view('backend.property-edit', compact('value'));
+        return view('backend.property-edit')->with(['value' => $value, 'houseTypes' => $this->houseTypes]);
     }
 
     /**
@@ -169,7 +177,7 @@ class PropertyController extends Controller
         //
         // dd($request->toArray());
         $request->validate([
-            'images[]' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images[]' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
 

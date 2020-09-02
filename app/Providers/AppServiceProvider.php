@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\View;
+use App\Property;
+use App\PropertyImages;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,5 +28,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        $img = PropertyImages::all()->random()->image_path;
+        View::share('image_path', $img);
     }
 }

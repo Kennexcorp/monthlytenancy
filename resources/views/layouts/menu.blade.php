@@ -25,10 +25,26 @@
     </a>
 </li>
 
+<li class="dropdown_menu {!! (Route::is('admin.requests.*') ? 'active':'')!!}">
+    <a href="{{ route('admin.requests.index') }}">
+        <i class="fa fa-envelope"></i>
+        <span class="link-title menu_hide">&nbsp; Requests</span>
+        <span class="fa arrow menu_hide"></span>
+    </a>
+</li>
+
 <li class="dropdown_menu {!! (Route::is('admin.settings.*') ? 'active':'')!!}">
     <a href="{{ route('admin.settings.index') }}">
         <i class="fa fa-gears"></i>
         <span class="link-title menu_hide">&nbsp; Settings</span>
+        <span class="fa arrow menu_hide"></span>
+    </a>
+</li>
+
+<li class="dropdown_menu">
+    <a href="{{ route('logout') }}">
+        <i class="fa fa-sign-out"></i>
+        <span class="link-title menu_hide">&nbsp; Logout</span>
         <span class="fa arrow menu_hide"></span>
     </a>
 </li>

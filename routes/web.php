@@ -23,13 +23,17 @@ Route::namespace('Frontend')->group(function () {
 
     Route::get('/about', 'AppController@about')->name('about');
     Route::get('/contact', 'AppController@contact')->name('contact');
+    Route::get('/contact/property={property?}', 'AppController@contactProperty')->name('contact.property');
 
     Route::name('member.')->group(function () {
         Route::get('/', 'AppController@home')->name('home');
     });
 
     Route::resource('profile', 'ProfileController')->only(['edit']);
+    Route::resource('rents', 'RentController')->only(['index', 'store']);
     Route::post('profile/{id}/{type}', 'ProfileController@update')->name('profile.update');
+
+    Route::get('property/{id}', 'PropertyController@viewProperty')->name('property.viewProperty');
 
     Route::name('auth.')->group(function () {
 
@@ -54,6 +58,7 @@ Route::namespace('Backend')->group(function () {
             Route::resource('property', 'PropertyController');
             Route::resource('users', 'UserController');
             Route::resource('settings', 'SettingsController');
+            Route::resource('requests', 'InspectionRequestController');
 
             Route::name('auth.')->group(function () {
 

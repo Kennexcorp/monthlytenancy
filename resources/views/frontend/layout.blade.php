@@ -65,17 +65,18 @@
                                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
                                     <li @if(Route::is('member.home'))class="active" @endif><a href="{{ route('member.home') }}" class="nav-link">Home</a>
                                     </li>
-                                    @if(\Auth::check())
-                                    <li><a href="agents.html" class="nav-link">Agents</a></li>
-                                    <li><a href="property.html" class="nav-link">Property</a></li>
+                                    @auth
+                                    <li><a href="agents.html" class="nav-link">Properties</a></li>
+                                    <li @if(Route::is('rents.index'))class="active" @endif><a href="{{ route('rents.index') }}" class="nav-link">My Rents</a></li>
                                     <li @if(Route::is('profile.edit'))class="active" @endif ><a href="{{ route('profile.edit', \Auth::user()->id) }}" class="nav-link">My Profile</a></li>
                                     <li><a href="{{ route('logout') }}" class="nav-link">Logout</a></li>
                                     @else
                                     <li @if(Route::is('about'))class="active" @endif><a href="{{ route('about') }}" class="nav-link">About</a></li>
                                     <li @if(Route::is('contact'))class="active" @endif><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
                                     <li @if(Route::is('auth.login'))class="active" @endif><a href="{{ route('auth.login') }}" class="nav-link">Login</a></li>
+                                    <li><a href="agents.html" class="nav-link">Properties</a></li>
                                     <li @if(Route::is('auth.signup'))class="active" @endif><a href="{{ route('auth.signup') }}" class="nav-link">Register</a></li>
-                                    @endif
+                                    @endauth
 
                                 </ul>
                             </nav>
@@ -114,8 +115,9 @@
                         </div>
                         <div class="col-md-4">
                             <h3 class="text-white h5 mb-3">About</h3>
-                            <p>The Alternative Tenancy Project hosted by First Alternative Realtors is a monthly housing
-                                scheme.</p>
+                            <p>First Alternative Realtors is a real estate company which is aimed at making accommodation simple affordable and
+                            comfortable, our mission is to provide accommodations affordable and provide other add on services for the comfort of
+                            the tenants.</p>
                         </div>
                     </div>
                     <div class="row pt-5 mt-5 text-center">

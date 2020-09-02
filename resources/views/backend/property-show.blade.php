@@ -80,13 +80,12 @@ Property
 
                                     {{-- <input type="text" class="form-control" name="default"  /> --}}
                                     <select class="form-control" name="property_type" required>
-                                        <option>Select Type</option>
-                                        <option @if($value->type == 'Estate')
+                                        <option disabled selected hidden>Select Type</option>
+                                        @foreach($propertyTypes as $type)
+                                        <option @if($value->type == $type->value)
                                             selected
-                                            @endif>Estate</option>
-                                        <option @if($value->type == 'Single')
-                                            selected
-                                            @endif>Single</option>
+                                            @endif>{{ $type->value }}</option>
+                                        @endforeach
                                     </select>
 
                                 </div>
@@ -235,7 +234,10 @@ Property
 
                                 {{-- <input type="text" class="form-control" name="default"  /> --}}
                                 <select class="form-control" name="house_type" required>
-                                    <option>Select Type</option>
+                                    <option disabled selected hidden>Select Type</option>
+                                        @foreach($houseTypes as $type)
+                                        <option>{{ $type->value }}</option>
+                                        @endforeach
                                 </select>
 
                             </div>
