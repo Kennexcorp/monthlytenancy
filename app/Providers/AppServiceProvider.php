@@ -30,8 +30,11 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         if (Schema::hasTable('property_images'))
         {
-            $img = PropertyImages::all()->random()->image_path;
+            if (PropertyImages::count() > 0) {
+                $img = PropertyImages::all()->random()->image_path;
         View::share('image_path', $img);
+            }
+
         }
 
     }
