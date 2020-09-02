@@ -28,8 +28,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-
-        $img = PropertyImages::all()->random()->image_path;
+        if (Schema::hasTable('property_images'))
+        {
+            $img = PropertyImages::all()->random()->image_path;
         View::share('image_path', $img);
+        }
+
     }
 }
