@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>Alternative Tenancy Program</title>
+        <title>Monthly Tenancy Program</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -48,7 +48,7 @@
 
                         <div class="col-3 ">
                             <div class="site-logo">
-                                <a href="{{ route('member.home') }}">ATP</a>
+                                <a href="{{ route('member.home') }}">MTP</a>
                             </div>
                         </div>
 
@@ -63,10 +63,10 @@
 
                             <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
                                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                                    <li @if(Route::is('member.home'))class="active" @endif><a href="{{ route('member.home') }}" class="nav-link">Home</a>
+                                    <li @if(Route::is('member.home')) class="active" @endif><a href="{{ route('member.home') }}" class="nav-link">Home</a>
                                     </li>
                                     @auth
-                                    <li><a href="agents.html" class="nav-link">Properties</a></li>
+                                    <li @if(Route::is('property.properties')) class="active" @endif><a href="{{ route('property.properties') }}" class="nav-link">Properties</a></li>
                                     <li @if(Route::is('rents.index'))class="active" @endif><a href="{{ route('rents.index') }}" class="nav-link">My Rents</a></li>
                                     <li @if(Route::is('profile.edit'))class="active" @endif ><a href="{{ route('profile.edit', \Auth::user()->id) }}" class="nav-link">My Profile</a></li>
                                     <li><a href="{{ route('logout') }}" class="nav-link">Logout</a></li>
@@ -74,7 +74,7 @@
                                     <li @if(Route::is('about'))class="active" @endif><a href="{{ route('about') }}" class="nav-link">About</a></li>
                                     <li @if(Route::is('contact'))class="active" @endif><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
                                     <li @if(Route::is('auth.login'))class="active" @endif><a href="{{ route('auth.login') }}" class="nav-link">Login</a></li>
-                                    <li><a href="agents.html" class="nav-link">Properties</a></li>
+                                    <li @if(Route::is('property.properties'))class="active" @endif><a href="{{ route('property.properties') }}" class="nav-link">Properties</a></li>
                                     <li @if(Route::is('auth.signup'))class="active" @endif><a href="{{ route('auth.signup') }}" class="nav-link">Register</a></li>
                                     @endauth
 

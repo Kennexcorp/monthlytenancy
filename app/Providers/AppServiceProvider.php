@@ -28,17 +28,20 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $img = '';
+        $img_url = 'https://corporatefinanceinstitute.com/assets/real-estate-768x461.jpeg';
         Schema::defaultStringLength(191);
         if (Schema::hasTable('property_images'))
         {
-            if (PropertyImages::count() > 0) {
+            if(PropertyImages::count() > 0 ){
                 $img = PropertyImages::all()->random()->image_path;
+                View::share('image_path', $img);
+            };
 
-            }
 
         }
 
-        View::share('image_path', $img);
+
+        View::share('image_url', $img_url);
 
     }
 }

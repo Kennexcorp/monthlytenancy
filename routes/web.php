@@ -30,10 +30,14 @@ Route::namespace('Frontend')->group(function () {
     });
 
     Route::resource('profile', 'ProfileController')->only(['edit']);
-    Route::resource('rents', 'RentController')->only(['index', 'store']);
+    Route::resource('rents', 'RentController');
+
+    Route::get('/rent-a-unit', 'RentController@rentAUnit')->name('rents.rentAUnit');
+    Route::get('/payment/callback/{txref?}', 'RentController@handleGatewayCallback')->name('rent.callback');
     Route::post('profile/{id}/{type}', 'ProfileController@update')->name('profile.update');
 
     Route::get('property/{id}', 'PropertyController@viewProperty')->name('property.viewProperty');
+    Route::get('properties', 'PropertyController@properties')->name('property.properties');
 
     Route::name('auth.')->group(function () {
 
@@ -71,6 +75,9 @@ Route::namespace('Backend')->group(function () {
     });
 
 });
+
+
+
 
 // Route::get('users', 'Admire2Controller@index');
 

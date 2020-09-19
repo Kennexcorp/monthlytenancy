@@ -7,7 +7,7 @@
 
 <div class="ftco-blocks-cover-1">
     <div class="site-section-cover overlay" data-stellar-background-ratio="0.5"
-        style="background-image: url({{ Storage::url($image_path) }})">
+        style="background-image: url({{ isset($image_path) ? Storage::url($image_path) : $image_url }})">
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-7">
@@ -20,12 +20,12 @@
 
                     <div class="d-flex media-38289 justify-content-around mb-5">
                         <div class="sq d-flex align-items-center"><span class="wrap-icon icon-fullscreen"></span>
-                            <span>{{ $property->units }}</span></div>
+                            <span>{{ isset($property->units) ? $property->units : '0'}}</span></div>
                         <div class="bed d-flex align-items-center"><span class="wrap-icon icon-bed"></span>
-                            <span>{{ $property->rooms }}</span>
+                            <span>{{ isset($property->rooms) ? $property->rooms : '0' }}</span>
                         </div>
                         <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
-                            <span>{{ $property->bathrooms }}</span>
+                            <span>{{ isset($property->bedrooms) ? $property->bedrooms : '0' }}</span>
                         </div>
                     </div>
                     @if(!(\Auth::check()))
@@ -54,7 +54,7 @@
             <div class="tab-pane active" id="for-rent" role="tabpanel" aria-labelledby="rent-tab">
 
                 <div class="row">
-                    <div class="col-md-3 form-group">
+                    <div class="col-md-6 form-group">
                         <select name="" id="" class="form-control w-100">
                             <option disabled selected hidden>Select Type</option>
                             @foreach($houseTypes as $type)
@@ -62,16 +62,16 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-3 form-group">
+                    <div class="col-md-6 form-group">
                         <select name="" id="" class="form-control w-100">
-                            <option value="">Any Bedrooms</option>
+                            <option value="">Select Location</option>
                             <option value="">0</option>
                             <option value="">1</option>
                             <option value="">2</option>
                             <option value="">3+</option>
                         </select>
                     </div>
-                    <div class="col-md-3 form-group">
+                    {{-- <div class="col-md-3 form-group">
                         <select name="" id="" class="form-control w-100">
                             <option value="">Any Bedrooms</option>
                             <option value="">0</option>
@@ -88,7 +88,7 @@
                             <option value="">2</option>
                             <option value="">3+</option>
                         </select>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="row">
                     <div class="col-md-6 form-group">
@@ -233,10 +233,12 @@
                             <span>{{ $property->bathrooms }}</span>
                         </div>
                     </div>
-                    <h3 class="mb-3"><a href="#">&#8358;{{ $property->unit_price }}</a>/month</h3>
-                    <span class="d-block small address d-flex align-items-center"> <span
-                            class="icon-room mr-3 text-primary"></span>
-                        <span>{{ $property->landlord->address }}</span></span>
+                    <h3 class="mb-3"><a href="#">&#8358;{{number_format(floatval($property->unit_price)) }} </a>/month
+                    </h3>
+                    <span class="d-block small address d-flex align-items-center">
+                        <span class="icon-room mr-3 text-primary"></span>
+                        <span>{{ $property->landlord->address }}</span>
+                    </span>
                 </div>
             </div>
             @endforeach

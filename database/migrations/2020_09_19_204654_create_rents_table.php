@@ -15,6 +15,11 @@ class CreateRentsTable extends Migration
     {
         Schema::create('rents', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_rent_id')->constrained();
+            $table->string('due_date');
+            $table->string('status');
+            $table->string('amount');
+            $table->string('tref');
             $table->timestamps();
         });
     }

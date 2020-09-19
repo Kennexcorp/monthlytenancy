@@ -3,7 +3,7 @@
 
 <div class="ftco-blocks-cover-1">
     <div class="site-section-cover overlay" data-stellar-background-ratio="0.5"
-        style="background-image: url({{ Storage::url($image_path) }})">
+        style="background-image: url({{ isset($image_path) ? Storage::url($image_path) : $image_url  }})">
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-7">
@@ -37,8 +37,8 @@
                                             Rent</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="work-tab" data-toggle="tab" href="#work"
-                                            role="tab" aria-controls="work" aria-selected="false">Past
+                                        <a class="nav-link" id="work-tab" data-toggle="tab" href="#work" role="tab"
+                                            aria-controls="work" aria-selected="false">Past
                                             Rents</a>
                                     </li>
                                 </ul>
@@ -59,22 +59,27 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @if (!blank($current))
+                                                        @foreach ($current->rents as $rent)
                                                         <tr>
                                                             <th scope="row">1</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>Otto</td>
-                                                            <td>Otto</td>
+                                                            <td>{{ Carbon\Carbon::parse($rent->due_date)->englishMonth  }}
+                                                            </td>
+                                                            <td>&#8358;{{number_format(floatval($rent->amount)) }}</td>
+                                                            <td>{{ Carbon\Carbon::parse($rent->due_date)->toFormattedDateString() }}
+                                                            </td>
+                                                            <td>{{ $rent->status }}</td>
                                                             <td>@mdo</td>
                                                         </tr>
+                                                        @endforeach
+                                                        @endif
 
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="work" role="tabpanel"
-                                        aria-labelledby="work-tab">
+                                    <div class="tab-pane fade" id="work" role="tabpanel" aria-labelledby="work-tab">
                                         <div class="d-flex px-1 w-100 align-items-center text-left pt-3">
                                             <div class="w-100">
                                                 <table class="table table-striped">
@@ -83,20 +88,23 @@
                                                             <th scope="col">#</th>
                                                             <th scope="col">Month</th>
                                                             <th scope="col">Amount</th>
-                                                            <th scope="col">Due Date</th>
+                                                            <th scope="col">Duration</th>
                                                             <th scope="col">Status</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @foreach ($past as $rent)
                                                         <tr>
                                                             <th scope="row">1</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>Otto</td>
-                                                            <td>Otto</td>
+                                                            <td>{{ Carbon\Carbon::parse($rent->created_at)->toFormattedDateString() .' - '.  Carbon\Carbon::parse($rent->created_at)->addMonth($rent->duration)->toFormattedDateString() }}
+                                                            </td>
+                                                            <td>&#8358;{{number_format(floatval($rent->rents->sum('amount'))) }}</td>
+                                                            <td>{{ $rent->duration }} Months</td>
+                                                            <td>{{ $rent->status }}</td>
                                                             <td>@mdo</td>
                                                         </tr>
+                                                        @endforeach
 
                                                     </tbody>
                                                 </table>
