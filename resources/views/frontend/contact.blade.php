@@ -72,11 +72,10 @@
                     <ul class="list-unstyled footer-link">
                         <li class="d-block mb-3">
                             <span class="d-block text-black">Address:</span>
-                            <span>No 28 Ziguinchor St. Wuse Zone 4 Abuja</span></li>
-                        <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+234
-                                817 919 9043</span></li>
+                            <span>No 15 Freetown street Ademola Adetokunbo Way Wuse2 abuja</span></li>
+                        <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+234 809 5258 963, +234 80 9525 8967</span></li>
                         <li class="d-block mb-3"><span
-                                class="d-block text-black">Email:</span><span>admin@atp.com</span></li>
+                                class="d-block text-black">Email:</span><span>info@themtp.com</span></li>
                     </ul>
                 </div>
             </div>

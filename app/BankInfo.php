@@ -8,7 +8,9 @@ class BankInfo extends Model
 {
     //
     protected $fillable = [
-        'phone_number',
+        'card_number',
+        'card_name',
+        'expiry_date',
     ];
 
     public function user() {

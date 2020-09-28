@@ -91,11 +91,11 @@
                                                             name="date_of_birth" placeholder="Age">
                                                     </div>
 
-                                                    <div class="form-group">
+                                                    {{-- <div class="form-group">
                                                         <label for="valid_id">Valid means of Identification</label>
                                                         <input type="file" class="form-control" id="valid_id"
                                                             name="valid_id" placeholder="Age">
-                                                    </div>
+                                                    </div> --}}
 
                                                     <button type="submit" class="btn btn-primary">Update</button>
                                                 </form>
@@ -109,7 +109,7 @@
                                                     method="POST" , enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Occupation</label>
+                                                        <label for="occupation">Occupation</label>
                                                         <select class="form-control" name="occupation">
                                                             <option>Select one</option>
                                                             <option>Corps Member</option>
@@ -118,9 +118,29 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="workID">Work ID/Nysc ID</label>
-                                                        <input type="file" class="form-control" id="workID"
-                                                            placeholder="workID" name="workID">
+                                                        <label for="organization_name">Name of Organization you work for:</label>
+                                                        <input type="text" class="form-control" id="organization_name" placeholder="Organization Name" name="organization_name"
+                                                            value="{{ $user->profile->organization_name }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="organization_address">Address of Organization you work for:</label>
+                                                        <input type="text" class="form-control" id="organization_address" placeholder="Organization Address" name="organization_address"
+                                                            value="{{ $user->profile->organization_address }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="id_type">Work ID/Nysc ID</label>
+                                                        <select class="form-control" name="id_type">
+                                                            <option>Select one</option>
+                                                            <option>National ID</option>
+                                                            <option>Voters ID</option>
+                                                            <option>Passport</option>
+                                                            <option>Driver's license</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="id_number">ID number</label>
+                                                        <input type="text" class="form-control" id="id_number"
+                                                            placeholder="ID number" name="id_number">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="account_statement">One Year Account
@@ -149,23 +169,17 @@
                                                     method="POST" , enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="form-group">
-                                                        <label for="bank">Bank Name</label>
-                                                        <select class="form-control" name="bank">
-                                                            <option>Select Bank</option>
-                                                            <option>Corps Member</option>
-                                                            <option>Public/ Private Sector Worker</option>
-                                                            <option>Others</option>
-                                                        </select>
+                                                        <label for="card_number">Card Number</label>
+                                                        <input type="text" class="form-control" name="card_number"
+                                                            placeholder="Enter Card Number">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="account_number">Account Number</label>
-                                                        <input type="text" class="form-control" name="account_number"
-                                                            placeholder="Enter Account Number">
+                                                        <label for="card_name">Card Holder Name</label>
+                                                        <input type="text" class="form-control" name="card_name" placeholder="Enter Card Holder Name">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="account_name">Account Name</label>
-                                                        <input type="text" class="form-control" name="account_name"
-                                                            placeholder="Enter NIN Number" readonly>
+                                                        <label for="expiry_date">Expiry Date</label>
+                                                        <input type="month" class="form-control" name="expiry_date" min="2020-01">
                                                     </div>
 
                                                     <div class="form-group">

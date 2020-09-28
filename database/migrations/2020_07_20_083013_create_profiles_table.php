@@ -18,7 +18,7 @@ class CreateProfilesTable extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('phone_number', 11)->unique();
             $table->string('date_of_birth')->nullable()->default(null);
-            $table->string('valid_id')->nullable()->default(null);
+            // $table->string('valid_id')->nullable()->default(null);
             $table->timestamps();
         });
     }

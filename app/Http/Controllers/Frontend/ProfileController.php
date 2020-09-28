@@ -95,7 +95,16 @@ class ProfileController extends Controller
 
             case 'work':
                 # code...
-                dd($request->toArray());
+                // dd($request->toArray());
+                $user->workInfo()->update([
+                    'occupation' => $request->occupation,
+                    'organization_name' => $request->organization_name,
+                    'organization_address' => $request->organization_address,
+                    'id_number' => $request->id_number,
+                    'id_type' => $request->id_type,
+                    'account_statement' => $request->account_statement,
+                    'callup_letter' => $request->callup_letter,
+                ]);
                 break;
 
             case 'account':

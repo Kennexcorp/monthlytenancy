@@ -4,7 +4,8 @@
     <div class="site-section-cover overlay" data-stellar-background-ratio="0.5"
       style="background-image: url({{ isset($image_path) ? Storage::url($image_path) : $image_url }})">
       <div class="container">
-        <div class="row align-items-center justify-content-center text-center">
+        <div class="row align-items-center justify-content-center text-center pt-5">
+            {{-- <div class="pt-5">&nbsp;</div> --}}
           <div class="card">
             <div class="card-body">
               <form class="form-signin" action="{{ route('auth.login.authenticate') }}" method="POST">

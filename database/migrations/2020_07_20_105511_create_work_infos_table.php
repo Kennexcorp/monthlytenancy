@@ -17,7 +17,10 @@ class CreateWorkInfosTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('occupation')->nullable()->default(null);
-            $table->string('workID')->nullable()->default(null);
+            $table->string('organization_name')->nullable()->default(null);
+            $table->string('organization_address')->nullable()->default(null);
+            $table->string('id_type')->nullable()->default(null);
+            $table->string('id_number')->nullable()->default(null);
             $table->string('account_statement')->nullable()->default(null);
             $table->string('callup_letter')->nullable()->default(null);
             $table->timestamps();

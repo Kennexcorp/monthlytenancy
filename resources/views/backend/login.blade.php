@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <title>Login | ATP</title>
+        <title>Login | MTP</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="{{asset('img/logo1.ico')}}" />
         <!--Global styles -->
@@ -44,7 +44,7 @@ z-index: 999999">
                             <div class="login_logo login_border_radius1">
                                 <h3 class="text-center">
                                     <img src="{{asset('img/logow2.png')}}" alt="josh logo" class="admire_logo"><span
-                                        class="text-white"> ATP Admin &nbsp;<br />
+                                        class="text-white"> Monthly Tenancy Admin &nbsp;<br />
                                         Log In</span>
                                 </h3>
                             </div>

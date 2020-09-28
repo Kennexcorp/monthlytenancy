@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\UserRent;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -56,6 +57,11 @@ class UserController extends Controller
     public function show(User $user)
     {
         //
+        $rents = UserRent::with(['rents'])->where('user_id', $user->id)->get();
+
+        // dd($rents->toArray());
+
+        return view('backend.view_user')->with(['user' => $user, 'rents' => $rents]);
     }
 
     /**

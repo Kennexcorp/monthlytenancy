@@ -9,6 +9,7 @@ class Profile extends Model
     //
     protected $fillable = [
         'phone_number',
+        'date_of_birth',
     ];
 
     public function user() {

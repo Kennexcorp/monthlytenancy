@@ -82,7 +82,7 @@ Users
                                     <td class="center">Male</td>
                                     <td class="center">{{ $user->profile->phone_number }}</td>
                                     <td class="center">{{  $user->workInfo->occupation }}</td>
-                                    <td><a href="view_user" data-toggle="tooltip" data-placement="top"
+                                    <td><a href="{{ route('admin.users.show', $user) }}" data-toggle="tooltip" data-placement="top"
                                             title="View User"><i class="fa fa-eye text-success"></i></a>&nbsp; &nbsp;<a
                                             class="edit" data-toggle="tooltip" data-placement="top" title="Edit"
                                             href="edit_user"><i class="fa fa-pencil text-warning"></i></a>&nbsp;
