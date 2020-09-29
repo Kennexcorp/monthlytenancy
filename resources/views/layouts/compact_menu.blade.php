@@ -18,13 +18,6 @@
         <!-- end of global styles-->
         @yield('header_styles')
     </head>
-<script type="text/javascript"> //<![CDATA[
-  var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.trust-provider.com/" : "http://www.trustlogo.com/");
-  document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
-//]]></script>
-<script language="JavaScript" type="text/javascript">
-  TrustLogo("https://www.positivessl.com/images/seals/positivessl_trust_seal_sm_124x32.png", "POSDV", "none");
-</script>
 
     <body class="sidebar-left-hidden">
         <div class="preloader" style=" position: fixed;
@@ -148,6 +141,15 @@ z-index: 999999">
         <script type="text/javascript" src="{{asset('js/custom.js')}}"></script>
         <!-- end of global scripts-->
         <!-- page level js -->
+        <script type="text/javascript">
+            //<![CDATA[
+          var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.trust-provider.com/" : "http://www.trustlogo.com/");
+          document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+        //]]>
+        </script>
+        <script language="JavaScript" type="text/javascript">
+            TrustLogo("https://www.positivessl.com/images/seals/positivessl_trust_seal_sm_124x32.png", "POSDV", "none");
+        </script>
         @yield('footer_scripts')
         <!-- end page level js -->
     </body>
