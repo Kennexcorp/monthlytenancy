@@ -132,29 +132,29 @@
                         <div class="col-md-6 text-center mb-4">
                             <div class="service-38201">
                                 <span class="flaticon-house-2"></span>
-                                <h3>Estate Insurance</h3>
-                                <p>Estate Management</p>
+                                <h3>Elegant Houses</h3>
+                                {{-- <p>Estate Management</p> --}}
                             </div>
                         </div>
                         <div class="col-md-6 text-center mb-4">
                             <div class="service-38201">
                                 <span class="flaticon-bathtub"></span>
                                 <h3>Elegant Bathtub</h3>
-                                <p>Estate Management</p>
+                                {{-- <p>Estate Management</p> --}}
                             </div>
                         </div>
                         <div class="col-md-6 text-center mb-4">
                             <div class="service-38201">
                                 <span class="flaticon-house-1"></span>
                                 <h3>Fresh Air</h3>
-                                <p>Estate Management</p>
+                                {{-- <p>Estate Management</p> --}}
                             </div>
                         </div>
                         <div class="col-md-6 text-center mb-4">
                             <div class="service-38201">
                                 <span class="flaticon-calculator"></span>
-                                <h3>Estate Calculator</h3>
-                                <p>Estate Management</p>
+                                <h3>Monthly Payments</h3>
+                                {{-- <p>Estate Management</p> --}}
                             </div>
                         </div>
                     </div>
@@ -163,11 +163,8 @@
             <div class="col-lg-5 ml-auto">
                 <h3 class="heading-29201">About Us</h3>
 
-                <p class="mb-5"> First Alternative Realtors is a real estate company which is aimed at making
-                    accommodation simple affordable and
-                    comfortable, our mission is to provide accommodations affordable and provide other add on services
-                    for the comfort of
-                    the tenants.</p>
+                <p class="mb-5"> First alternative Realtors is a real estate management company, aimed at bridging the tenancy gap in Nigeria by providing alternative to yearly Tenancy. The monthly tenancy plan by first alternative Realtors is designed to improve
+                rental in Nigeria, eliminate debt, increase occupancy rate and provide affordability and flexibility for tenants.</p>
 
                 <div class="service-39290 d-flex align-items-start mb-5">
                     <div class="media-icon mr-4">
@@ -175,12 +172,8 @@
                     </div>
                     <div class="text">
                         <h3>Mission</h3>
-                        <p>It is our aim at First Alternative Realtors to provide decent accommodation for
-                            tenants also protect tenants right and provide services to minimize the loss of
-                            lives and
-                            properties due to the inadequate rapid response of SOS services in cases of
-                            fire, health or
-                            security emergencies.</p>
+                        <p>Bridging the tenancy deficit in Nigeria, while improving occupancy rate in Nigeria and at the same time eliminating
+                        debts.</p>
                     </div>
                 </div>
 
@@ -190,9 +183,8 @@
                     </div>
                     <div class="text">
                         <h3>Vision</h3>
-                        <p>To provide maximum affordability, simplicity, and comfort for Nigerians in areas
-                            where accommodation is really costly and also with the option of pairing
-                            included the affordability of houses would be easier.</p>
+                        <p>It's is our aim to improve tenancy conditions in Nigeria as this will simplify the lives of many Nigerians and create
+                        affordability in tenancy, there by yielding more return for landlords.</p>
                     </div>
                 </div>
             </div>
@@ -206,10 +198,10 @@
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
                 <h3 class="heading-29201 text-center text-white">Latest Properties</h3>
+                @if (blank($properties))
+                <p class="mb-5 text-white">No property availiable for rent</p>
+                @endif
 
-                <p class="mb-5 text-white">Perspiciatis quidem, harum provident, repellat sint officia quos
-                    fugit tempora
-                    id deleniti.</p>
             </div>
         </div>
 
@@ -250,9 +242,10 @@
     </div>
 </div>
 
-@auth
+{{-- @auth
 
 @else
+
 <div class="site-section bg-primary">
     <div class="h3 text-center font-bold text-white">Testimonials</div>
     <div class="container block-13">
@@ -311,7 +304,7 @@
     </div>
 </div>
 
-@endauth
+@endauth --}}
 
 @stop
 

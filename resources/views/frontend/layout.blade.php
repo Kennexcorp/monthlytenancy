@@ -105,31 +105,27 @@
                         <div class="col-md-3 ml-auto">
                             <ul class="list-unstyled menu-arrow">
                                 <li><a href="#">About Us</a></li>
-                                <li><a href="#">Testimonials</a></li>
+                                {{-- <li><a href="#">Testimonials</a></li> --}}
                                 <li><a href="#">Terms of Service</a></li>
                                 <li><a href="#">Privacy</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="{{ route('contact') }}">Contact Us</a></li>
                             </ul>
                         </div>
                         <div class="col-md-4">
                             <h3 class="text-white h5 mb-3">About</h3>
-                            <p>First Alternative Realtors is a real estate company which is aimed at making accommodation simple affordable and
-                            comfortable, our mission is to provide accommodations affordable and provide other add on services for the comfort of
-                            the tenants.</p>
+                            <p>First alternative Realtors is a real estate management company, aimed at bridging the tenancy gap in Nigeria by
+                            providing alternative to yearly Tenancy. The monthly tenancy plan by first alternative Realtors is designed to improve
+                            rental in Nigeria, eliminate debt, increase occupancy rate and provide affordability and flexibility for tenants.</p>
                         </div>
                     </div>
                     <div class="row pt-5 mt-5 text-center">
                         <div class="col-md-12">
                             <div class="border-top pt-5">
                                 <p>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                     Copyright &copy;
                                     <script>
                                         document.write(new Date().getFullYear());
-                                    </script> All rights reserved | Made with <i class="icon-heart text-danger"
-                                        aria-hidden="true"></i> by <a href="#" target="_blank">Kennexcorp
-                                        Software Solutions</a>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    </script> Monthlytenancy.com All rights reserved
                                 </p>
                             </div>
                         </div>
