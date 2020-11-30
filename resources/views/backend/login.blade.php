@@ -93,7 +93,7 @@ z-index: 999999">
                                             </label>
                                         </div>
                                         <div class="col-6 text-right forgot_pwd">
-                                            <a href="forgot_password1"
+                                            <a href="{{ url('password/reset') }}"
                                                 class="custom-control-description forgottxt_clr">Forgot password?</a>
                                         </div>
                                     </div>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 
 class AuthController extends Controller
 {
@@ -65,6 +66,50 @@ class AuthController extends Controller
             return back();
         }
 
+    }
+
+    public function forgotPassword()
+    {
+        return view('frontend.password');
+    }
+
+    public function forgot() {
+
+        $credentials = request()->validate(['email' => 'required|email']);
+
+        Password::sendResetLink($credentials);
+
+        return back()->with("message", 'Reset password link sent on your email id.');
+    }
+
+    public function getReset($token)
+    {
+        // dd($token);
+        return view('frontend.password-reset', ['token' => $token]);
+    }
+
+    public function reset(Request $request) {
+
+        // dd($request->toArray());
+        $credentials = request()->validate([
+            'email' => 'required|email',
+            'token' => 'required|string',
+            'password' => 'required|string|confirmed'
+        ]);
+        // dd($credentials);
+
+        $reset_password_status = Password::reset($credentials, function ($user, $password) {
+            $user->password = Hash::make($password);
+            $user->save();
+        });
+
+        // dd($reset_password_status);
+
+        if ($reset_password_status == Password::INVALID_TOKEN) {
+            return back()->with("message", "Invalid token provided");
+        }
+
+        return redirect()->route('auth.login')->with("message", "Password has been successfully changed");
     }
 
 

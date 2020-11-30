@@ -64,7 +64,7 @@ z-index: 999999">
                                     </button>
                                     <div class="dropdown-menu admire_admin">
                                         <a class="dropdown-item title" href="#">
-                                            Admire Admin</a>
+                                            MTP Admin</a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"><i class="fa fa-sign-out"></i>
                                             Log Out</a>
                                     </div>

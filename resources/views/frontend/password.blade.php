@@ -8,9 +8,9 @@
             {{-- <div class="pt-5">&nbsp;</div> --}}
           <div class="card">
             <div class="card-body">
-              <form class="form-signin" action="{{ route('auth.login.authenticate') }}" method="POST">
+              <form class="form-signin" action="{{ route('password.email') }}" method="POST">
                 @csrf
-                <h1 class="h3 mb-3 font-weight-normal text-dark">Login</h1>
+                <h1 class="h3 mb-3 font-weight-normal text-dark">Password Reset</h1>
 
 
                 <div class="">
@@ -25,19 +25,9 @@
 
                   </div>
 
-                <div class="">
-                  <div class="form-group">
-                    <label for="password" class="sr-only">Password</label>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-                  </div>
 
-                </div>
-                <div class="checkbox mb-3">
-                  <a href="{{ url('password/reset') }}">Forgot password?</a>
-                </div>
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                <p class="text-dark">Not registered? <a href="{{ route('auth.signup') }}">Create an account</a></p>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Reset Password</button>
                 <p class="mt-5 mb-3 text-muted">&copy;<script>
                     document.write(new Date().getFullYear());
                 </script></p>

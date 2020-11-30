@@ -75,7 +75,7 @@
                             <span>No 15 Freetown street Ademola Adetokunbo Way Wuse2 abuja</span></li>
                         <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+234 809 5258 963, +234 80 9525 8967</span></li>
                         <li class="d-block mb-3"><span
-                                class="d-block text-black">Email:</span><span>info@themtp.com</span></li>
+                                class="d-block text-black">Email:</span><span>monthlytenancy@gmail.com</span></li>
                     </ul>
                 </div>
             </div>

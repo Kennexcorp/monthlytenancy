@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 include('web_builder.php');
@@ -14,9 +15,17 @@ include('web_builder.php');
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Auth::routes();
 Route::get('/login', 'AppBaseController@rerouteLogin')->name('login');
 Route::get('/logout', 'AppBaseController@logout')->name('logout');
+
+Route::get('/password/reset', 'Frontend\AuthController@forgotPassword');
+
+Route::post('/password/email', 'Frontend\AuthController@forgot')->name('password.email');
+
+Route::get('password/reset/{token}', 'Frontend\AuthController@getReset')->name('password.reset');;
+
+Route::post('password/reset', 'Frontend\AuthController@reset')->name('password.postReset');
 
 Route::namespace('Frontend')->group(function () {
     // Controllers Within The "App\Http\Controllers\Admin" Namespace
@@ -42,9 +51,14 @@ Route::namespace('Frontend')->group(function () {
     Route::name('auth.')->group(function () {
 
         Route::get('/login', 'AuthController@login')->name('login');
+
         Route::post('/authenticate', 'AuthController@authenticate')->name('login.authenticate');
+
         Route::get('/signup', 'AuthController@signup')->name('signup');
+
         Route::post('/register', 'AuthController@register')->name('register');
+
+
 
     });
 
@@ -54,23 +68,27 @@ Route::namespace('Frontend')->group(function () {
 Route::namespace('Backend')->group(function () {
     // Controllers Within The "App\Http\Controllers\Admin" Namespace
 
+
     Route::prefix('admin')->group(function () {
 
         Route::get('/login', 'AuthController@login')->name('login');
-        Route::name('admin.')->group(function () {
-            Route::get('/', 'AppController@home')->name('home');
-            Route::resource('property', 'PropertyController');
-            Route::resource('users', 'UserController');
-            Route::resource('settings', 'SettingsController');
-            Route::resource('requests', 'InspectionRequestController');
+        Route::group(['middleware' => ['role:super-admin']], function () {
+            //
+            Route::name('admin.')->group(function () {
+                Route::get('/', 'AppController@home')->name('home');
+                Route::resource('property', 'PropertyController');
+                Route::resource('users', 'UserController');
+                Route::resource('settings', 'SettingsController');
+                Route::resource('requests', 'InspectionRequestController');
 
-            Route::name('auth.')->group(function () {
+                Route::name('auth.')->group(function () {
 
+                    Route::post('/authenticate', 'AuthController@authenticate')->name('login.authenticate');
 
-                Route::post('/authenticate', 'AuthController@authenticate')->name('login.authenticate');
-
+                });
             });
         });
+
 
     });
 

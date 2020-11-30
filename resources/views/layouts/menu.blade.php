@@ -2,7 +2,7 @@
 <li {!! (Route::is('admin.home')? 'class="active"' :"") !!}>
     <a href="{{ route('admin.home') }} ">
         <i class="fa fa-tachometer"></i>
-        <span class="link-title menu_hide">&nbsp;Dashboard 2
+        <span class="link-title menu_hide">&nbsp;Dashboard
         </span>
     </a>
 </li>
