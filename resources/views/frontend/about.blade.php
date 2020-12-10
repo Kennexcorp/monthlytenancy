@@ -30,7 +30,7 @@
         <div class="col-md-4 mb-5">
           <div class="person-29381">
             <div class="media-39912">
-              <img src="{{ asset('img/frontend/images/person_1.jpg') }}" alt="Image" class="img-fluid">
+              <img src="{{ asset('img/team/kene.jpeg') }}" alt="Image" class="img-fluid">
             </div>
             <h3><a href="#">Ekene Henry Ossai</a></h3>
             <span class="meta d-block mb-4">MD/CEO</span>

@@ -15,7 +15,7 @@
                     <h1 class="mb-2">The Monthly Tenancy Plan<br> &nbsp;by First Alternative Realtors</h1>
                     <p class="text-center mb-5"><span
                             class="small address d-flex align-items-center justify-content-center"> <span
-                                class="icon-room mr-3 text-primary"></span> <span>Abuja,
+                                class="icon-room mr-3 text-primary"></span> <span>Abuja, Port harcourt and Lagos
                                 Nigeria</span></span></p>
 
                     <div class="d-flex media-38289 justify-content-around mb-5">
@@ -71,7 +71,7 @@
                             <option value="">3+</option>
                         </select>
                     </div>
-                    
+
                 </div>
                 <div class="row">
                     <div class="col-md-6 form-group">
