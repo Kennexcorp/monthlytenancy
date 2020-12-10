@@ -32,6 +32,7 @@ Route::namespace('Frontend')->group(function () {
 
     Route::get('/about', 'AppController@about')->name('about');
     Route::get('/contact', 'AppController@contact')->name('contact');
+    Route::get('/terms', 'AppController@downloadTerms')->name('terms');
     Route::get('/contact/property={property?}', 'AppController@contactProperty')->name('contact.property');
 
     Route::name('member.')->group(function () {

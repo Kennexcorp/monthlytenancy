@@ -31,15 +31,11 @@
                                 <i class="fa fa-edit"></i>
                             </a>
                             <div class="card-body py-4">
-                                <img class="profile-picture rounded-circle"
-                                    src="https://randomuser.me/api/portraits/women/63.jpg" />
+                                
                                 <h2 class="text-dark h5 font-weight-bold mt-4 mb-1">
                                     {{ $user->name }}
                                 </h2>
-                                <p class="text-muted font-weight-bold small">
-                                    <i class="fa fa-map-marker"></i>
-                                    15 Eagle Way, AL10 BRD
-                                </p>
+
                                 <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" id="personal-tab" data-toggle="tab" href="#personal"

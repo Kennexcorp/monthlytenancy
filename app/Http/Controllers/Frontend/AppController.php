@@ -7,13 +7,14 @@ use App\Property;
 use App\PropertyImages;
 use App\PropertyType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AppController extends Controller
 {
     //
     public function __construct()
     {
-        $this->middleware('auth')->except(['about', 'contact', 'home', 'contactProperty']);
+        $this->middleware('auth')->except(['about', 'contact', 'home', 'contactProperty', 'downloadTerms']);
     }
 
     public function home() {
@@ -40,5 +41,9 @@ class AppController extends Controller
         return view('frontend.contact', ['property' => $inspectProp]);
     }
 
+    public function downloadTerms() {
+
+        return Storage::download('/terms/MTP_terms.pdf');
+    }
 
 }

@@ -32,7 +32,8 @@
                     @if(isset($property))
                     <div class="form-group row">
                         <div class="col-md-12 mb-4 mb-lg-0">
-                            <input type="text" value="Request inspection for property @ {{ $property->landlord->name }}" class="form-control"  readonly>
+                            <input type="text" value="Request inspection for property @ {{ $property->landlord->name }}"
+                                class="form-control" readonly>
                             <input type="hidden" value="{{ $property->id }}" name="property">
                         </div>
                     </div>
@@ -60,8 +61,8 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-md-12 mr-auto">
-                            <button type="submit" class="btn btn-block btn-primary text-white py-3 px-5"
-                                >Send Message</button>
+                            <button type="submit" class="btn btn-block btn-primary text-white py-3 px-5">Send
+                                Message</button>
                         </div>
                     </div>
                 </form>
@@ -73,9 +74,21 @@
                         <li class="d-block mb-3">
                             <span class="d-block text-black">Address:</span>
                             <span>No 15 Freetown street Ademola Adetokunbo Way Wuse2 abuja</span></li>
-                        <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+234 809 5258 963, +234 80 9525 8967</span></li>
-                        <li class="d-block mb-3"><span
-                                class="d-block text-black">Email:</span><span>monthlytenancy@gmail.com</span></li>
+                        <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+234 809 5258 963,
+                                +234 80 9525 8967</span></li>
+                        <li class="d-block mb-3">
+                            <span class="d-block text-black">Email:</span>
+                            <span>monthlytenancy@gmail.com</span>
+                        </li>
+                        <li class="d-block mb-3">
+                            <span class="d-block text-black">Twitter:</span>
+                            <span><a href="https://twitter.com/The_MTP_abuja" target="_blank">@The_MTP_abuja</a></span>
+                        </li>
+                        <li class="d-block mb-3">
+                            <span class="d-block text-black">Instagram:</span>
+                            <span><a href="https://www.instagram.com/themtp_abuja/" target="_blank">@themtp_abuja
+                            </a></span>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -104,10 +104,10 @@
                         </div>
                         <div class="col-md-3 ml-auto">
                             <ul class="list-unstyled menu-arrow">
-                                <li><a href="#">About Us</a></li>
+                                <li><a href="{{ route('about') }}">About Us</a></li>
                                 {{-- <li><a href="#">Testimonials</a></li> --}}
-                                <li><a href="#">Terms of Service</a></li>
-                                <li><a href="#">Privacy</a></li>
+                                <li><a href="{{ route('terms') }}">Terms of Service</a></li>
+                                {{-- <li><a href="#">Privacy</a></li> --}}
                                 <li><a href="{{ route('contact') }}">Contact Us</a></li>
                             </ul>
                         </div>
