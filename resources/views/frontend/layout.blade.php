@@ -68,7 +68,7 @@
                                     @auth
                                     <li @if(Route::is('property.properties')) class="active" @endif><a href="{{ route('property.properties') }}" class="nav-link">Properties</a></li>
                                     <li @if(Route::is('rents.index'))class="active" @endif><a href="{{ route('rents.index') }}" class="nav-link">My Rents</a></li>
-                                    <li @if(Route::is('profile.edit'))class="active" @endif ><a href="{{ route('profile.edit', \Auth::user()->id) }}" class="nav-link">My Profile</a></li>
+                                    <li @if(Route::is('profile.edit'))class="active" @endif ><a href="{{ route('profile.edit', auth()->user()->id) }}" class="nav-link">My Profile</a></li>
                                     <li><a href="{{ route('logout') }}" class="nav-link">Logout</a></li>
                                     @else
                                     <li @if(Route::is('about'))class="active" @endif><a href="{{ route('about') }}" class="nav-link">About</a></li>

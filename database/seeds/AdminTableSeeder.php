@@ -22,7 +22,7 @@ class AdminTableSeeder extends Seeder
         ]);
 
         $user->profile()->create([
-            'phone_number' => '08169311714'
+            'phone_number' => '00000000000'
         ]);
 
         $user->assignRole('super-admin');

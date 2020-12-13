@@ -66,25 +66,25 @@
                                                         <label for="name">Name</label>
                                                         <input type="text" class="form-control" id="name"
                                                             placeholder="Enter Name" name="name"
-                                                            value="{{ $user->name }}">
+                                                            value="{{ $user->name }}" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="email">Email address</label>
                                                         <input type="email" class="form-control" id="email"
                                                             placeholder="Enter email" name="email"
-                                                            value="{{ $user->email }}">
+                                                            value="{{ $user->email }}" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="phone_number">Phone Number</label>
-                                                        <input type="text" class="form-control" id="phone_number"
+                                                        <input type="tel" class="form-control" id="phone_number"
                                                             placeholder="Phone Number" name="phone_number"
-                                                            value="{{ $user->profile->phone_number }}">
+                                                            value="{{ $user->profile->phone_number }}" required>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="date_of_birth">Date of Birth</label>
                                                         <input type="date" class="form-control" id="date_of_birth"
-                                                            name="date_of_birth" placeholder="Age">
+                                                            name="date_of_birth" placeholder="Age" required>
                                                     </div>
 
                                                     {{-- <div class="form-group">
@@ -106,49 +106,49 @@
                                                     @csrf
                                                     <div class="form-group">
                                                         <label for="occupation">Occupation</label>
-                                                        <select class="form-control" name="occupation">
-                                                            <option>Select one</option>
-                                                            <option>Corps Member</option>
-                                                            <option>Public/ Private Sector Worker</option>
-                                                            <option>Others</option>
+                                                        <select class="form-control" name="occupation" required>
+                                                            <option default selected>Select one</option>
+                                                            <option @if( $user->workInfo->occupation == "Corps Member") selected @endif >Corps Member</option>
+                                                            <option @if( $user->workInfo->occupation == "Public/ Private Sector Worker") selected @endif>Public/ Private Sector Worker</option>
+                                                            <option @if( $user->workInfo->occupation == "others") selected @endif value="others">Others</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="organization_name">Name of Organization you work for:</label>
                                                         <input type="text" class="form-control" id="organization_name" placeholder="Organization Name" name="organization_name"
-                                                            value="{{ $user->profile->organization_name }}">
+                                                            value="{{ $user->workInfo->organization_name }}" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="organization_address">Address of Organization you work for:</label>
                                                         <input type="text" class="form-control" id="organization_address" placeholder="Organization Address" name="organization_address"
-                                                            value="{{ $user->profile->organization_address }}">
+                                                            value="{{ $user->workInfo->organization_address }}"required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="id_type">Work ID/Nysc ID</label>
-                                                        <select class="form-control" name="id_type">
-                                                            <option>Select one</option>
-                                                            <option>National ID</option>
-                                                            <option>Voters ID</option>
-                                                            <option>Passport</option>
-                                                            <option>Driver's license</option>
+                                                        <select class="form-control" name="id_type" required>
+                                                            <option default selected>Select one</option>
+                                                            <option @if( $user->workInfo->id_type == "National ID") selected @endif>National ID</option>
+                                                            <option @if( $user->workInfo->id_type == "Voters ID") selected @endif>Voters ID</option>
+                                                            <option @if( $user->workInfo->id_type == "Passport") selected @endif>Passport</option>
+                                                            <option @if( $user->workInfo->id_type == "Driver's license") selected @endif>Driver's license</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="id_number">ID number</label>
                                                         <input type="text" class="form-control" id="id_number"
-                                                            placeholder="ID number" name="id_number">
+                                                            placeholder="ID number" name="id_number" required value="{{ $user->workInfo->id_number }}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="account_statement">One Year Account
                                                             Statement</label>
                                                         <input type="file" class="form-control" name="account_statement"
-                                                            placeholder="Enter Account Statement">
+                                                            placeholder="Enter Account Statement" required>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="callup_letter">Call up letter</label>
                                                         <input type="file" class="form-control" name="callup_letter"
-                                                            placeholder="Enter Account Statement">
+                                                            placeholder="Enter Account Statement" required>
                                                     </div>
 
 
@@ -166,22 +166,22 @@
                                                     @csrf
                                                     <div class="form-group">
                                                         <label for="card_number">Card Number</label>
-                                                        <input type="text" class="form-control" name="card_number"
-                                                            placeholder="Enter Card Number">
+                                                        <input type="tel" class="form-control" name="card_number"
+                                                            placeholder="Enter Card Number" required value="{{ $user->bankInfo->card_number }}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="card_name">Card Holder Name</label>
-                                                        <input type="text" class="form-control" name="card_name" placeholder="Enter Card Holder Name">
+                                                        <input type="text" class="form-control" name="card_name" placeholder="Enter Card Holder Name" required  value="{{ $user->bankInfo->card_name }}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="expiry_date">Expiry Date</label>
-                                                        <input type="month" class="form-control" name="expiry_date" min="2020-01">
+                                                        <input type="month" class="form-control" name="expiry_date" min="2020-01" required  value="{{ $user->bankInfo->expiry_date }}">
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="bvn">BVN Number</label>
-                                                        <input type="text" class="form-control" name="bvn"
-                                                            placeholder="Enter BVN Number">
+                                                        <input type="tel" class="form-control" name="bvn"
+                                                            placeholder="Enter BVN Number" required value="{{ $user->bankInfo->bvn }}">
                                                     </div>
 
 

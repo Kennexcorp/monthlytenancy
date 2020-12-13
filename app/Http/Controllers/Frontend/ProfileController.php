@@ -67,7 +67,9 @@ class ProfileController extends Controller
     public function edit($id)
     {
         //
-        $user = User::find($id)->with(['profile'])->first();
+        $user = User::where('id', $id)->with(['profile'])->first();
+
+        // dd($user->toArray());
 
         return view('frontend.profile')->with(['user'=> $user]);
     }
@@ -88,7 +90,7 @@ class ProfileController extends Controller
             case 'personal':
                 # code...
                 // dd($request->toArray());
-                $user->profile()->update([
+                $user->profile()->updateOrCreate([
                     'date_of_birth' => $request->date_of_birth
                 ]);
                 break;
@@ -96,7 +98,7 @@ class ProfileController extends Controller
             case 'work':
                 # code...
                 // dd($request->toArray());
-                $user->workInfo()->update([
+                $user->workInfo()->updateOrCreate([
                     'occupation' => $request->occupation,
                     'organization_name' => $request->organization_name,
                     'organization_address' => $request->organization_address,
@@ -109,7 +111,12 @@ class ProfileController extends Controller
 
             case 'account':
                 # code...
-                dd($request->toArray());
+                $user->bankInfo()->updateOrCreate([
+                    'card_name' => $request->card_name,
+                    'card_number' => $request->card_number,
+                    'expiry_date' => $request->exp_date,
+                    'bvn' => $request->bvn,
+                ]);
                 break;
 
             default:
@@ -118,6 +125,7 @@ class ProfileController extends Controller
                 return back();
                 break;
         }
+        return back()->with('success', 'profile updated successfully');
     }
 
     /**

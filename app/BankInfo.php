@@ -11,6 +11,7 @@ class BankInfo extends Model
         'card_number',
         'card_name',
         'expiry_date',
+        'bvn'
     ];
 
     public function user() {
