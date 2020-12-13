@@ -73,6 +73,11 @@ Route::namespace('Backend')->group(function () {
     Route::prefix('admin')->group(function () {
 
         Route::get('/login', 'AuthController@login')->name('login');
+        Route::name('admin.auth.')->group(function () {
+
+            Route::post('/authenticate', 'AuthController@authenticate')->name('login.authenticate');
+
+        });
         Route::group(['middleware' => ['role:super-admin']], function () {
             //
             Route::name('admin.')->group(function () {
@@ -82,11 +87,7 @@ Route::namespace('Backend')->group(function () {
                 Route::resource('settings', 'SettingsController');
                 Route::resource('requests', 'InspectionRequestController');
 
-                Route::name('auth.')->group(function () {
-
-                    Route::post('/authenticate', 'AuthController@authenticate')->name('login.authenticate');
-
-                });
+                
             });
         });
 
