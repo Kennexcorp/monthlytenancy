@@ -221,6 +221,24 @@
 
         </div>
 
+        <div class="row text-center pt-5 text-primary">
+            <div class="col-12">
+                <h2 class="text-white">Our Statistics</h2>
+            </div>
+            <div class="col h-50">
+                <h6>Happy Tenants</h6>
+                <h1 style="font-family: 'Courier New', Courier, monospace;" class="display-1 text-white">12</h1>
+            </div>
+            <div class="col h-50">
+                <h6>Happy Landlords</h6>
+                <h1 style="font-family: 'Courier New', Courier, monospace;" class="display-1 text-white">2</h1>
+            </div>
+            <div class="col h-50">
+                <h6>Happy Partners</h6>
+                <h1 style="font-family: 'Courier New', Courier, monospace;" class="display-1 text-white">1</h1>
+            </div>
+        </div>
+
 
     </div>
 </div>
