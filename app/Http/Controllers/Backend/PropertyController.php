@@ -240,7 +240,7 @@ class PropertyController extends Controller
     public function addImages($property, $images) {
         foreach($images as $file)
         {
-            $name = time().'.'.$file->extension();
+            $name = uniqid('image_').'.'.$file->extension();
             // $file->move(public_path().'/files/', $name);
             $path = $file->storeAs('public/propertyImages', $name);
             // $data->push(["path" => $path]);

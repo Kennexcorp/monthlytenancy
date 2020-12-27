@@ -16,7 +16,7 @@
                 <div class="col-md-7">
                     <span
                         class="h4 text-primary mb-4 d-block">&#8358;{{number_format(floatval($property->unit_price)) }}</span>
-                    <h1 class="mb-2">{{ $property->landlord->type }} ({{ $property->type }})</h1>
+                    <h1 class="mb-2">{{ $property->landlord->type }}</h1>
                     <p class="text-center mb-5"><span
                             class="small address d-flex align-items-center justify-content-center"> <span
                                 class="icon-room mr-3 text-primary"></span> <span>{{ $property->landlord->state }},
@@ -38,7 +38,7 @@
                     @endauth
                     <p><a href="{{ route('contact.property', $property->id) }}"
                             class="btn btn-primary text-white px-4 py-3">Request Inspection</a></p>
-                        @endisset
+                    @endisset
 
                 </div>
             </div>
@@ -63,17 +63,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @for ($i = 1; $i <= $duration; $i++)
-                        <tr>
+                        @for ($i = 1; $i <= $duration; $i++) <tr>
                             <th scope="row">{{ $i }}</th>
                             <td>{{ now()->addMonth($i)->toFormattedDateString() }}</td>
                             <td>&#8358;{{number_format(floatval($property->unit_price)) }}</td>
-                        </tr>
-                        @endfor
-                        <tr>
-                            <th scope="row" colspan="2">Total</th>
-                            <td>&#8358;{{number_format(floatval($property->unit_price * $duration)) }}</td>
-                        </tr>
+                            </tr>
+                            @endfor
+                            <tr>
+                                <th scope="row" colspan="2">Total</th>
+                                <td>&#8358;{{number_format(floatval($property->unit_price * $duration)) }}</td>
+                            </tr>
                     </tbody>
                 </table>
                 <form id="paymentForm">
@@ -87,7 +86,8 @@
                         <input type="hidden" id="name" value="{{ auth()->user()->name }}">
                         <input type="hidden" id="user" value="{{ auth()->user()->id }}">
                         <input type="hidden" id="callback" value="{{ route('rent.callback') }}">
-                        {{-- <input type="hidden" id="metadata" value="{{ json_encode($array = ['property' => $property->id, 'duration' => $duration]) }}"> --}}
+                        {{-- <input type="hidden" id="metadata" value="{{ json_encode($array = ['property' => $property->id, 'duration' => $duration]) }}">
+                        --}}
                         {{-- For other necessary things you want to add to your payload. it is optional though --}}
                         {{-- <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> required --}}
                     </div>
@@ -97,7 +97,8 @@
                         </button>
                     </div> --}}
                     <div class="form-submit">
-                        <button class="btn btn-success btn-lg btn-block" type="submit" onclick="payWithPaystack()"><i class="fa fa-plus-circle fa-lg"></i> Rent Now! </button>
+                        <button class="btn btn-success btn-lg btn-block" type="submit" onclick="payWithPaystack()"><i
+                                class="fa fa-plus-circle fa-lg"></i> Rent Now! </button>
                     </div>
                 </form>
             </div>
@@ -110,26 +111,60 @@
                 <p><strong>Type: </strong>{{ $property->type }}</p>
                 <p><strong>Avaliable Units: </strong>{{ $property->units }}</p>
                 <p><strong>Unit Price: </strong>&#8358;{{number_format(floatval($property->unit_price)) }}</p>
-                {{-- <p><a href="{{ route('rents.rentAUnit', $property) }}" class="btn btn-primary text-white">Rent a unit</a>
+                <p><strong>Other Details: </strong>{{$property->other_description }}</p>
+                {{-- <p><a href="{{ route('rents.rentAUnit', $property) }}" class="btn btn-primary text-white">Rent a
+                unit</a>
                 </p> --}}
             </div>
-            <div class="col-md-4">
-                <form method="GET" action="{{ route('rents.rentAUnit') }}">
-                    {{-- @csrf --}}
-                    <div class="form-group row">
-                        <div class="col-12">
-                            <input type="number" class="form-control" placeholder="Enter Duration of Stay" name="duration"
-                                min="1" value="1" required>
-                            <small class="">Please enter number of month you wish to rent this unit for</small>
+            
+            @auth
+                <div class="col-md-4">
+                    <form method="GET" action="{{ route('rents.rentAUnit') }}">
+                        {{-- @csrf --}}
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <input type="number" class="form-control" placeholder="Enter Duration of Stay" name="duration" min="1"
+                                    value="1" required>
+                                <small class="">Please enter number of month you wish to rent this unit for</small>
+                            </div>
+                            <input type="hidden" name="property" value="{{ $property->id }}">
                         </div>
-                        <input type="hidden" name="property" value="{{ $property->id }}">
+                        <div>
+                            <button class="btn btn-primary col-12" type="submit">Rent Now</button>
+                        </div>
+                    </form>
+                </div>
+            @endauth
+            
+            <div class="col-12">
+                <p>Other Images:</p>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        @foreach ($property->propertyImages as $images)
+                            <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" @if($loop->index == 0)class="active" @endif></li>
+                           
+                        @endforeach
+                        
+                    </ol>
+                    <div class="carousel-inner">
+                        @foreach ($property->propertyImages as $images)
+                            <div class="carousel-item @if($loop->index == 0)active @endif">
+                                <img class="d-block w-100" src="{{ Storage::url($images->image_path) }}"
+                                    alt="First slide">
+                            </div>
+                        @endforeach
+                        
                     </div>
-                    <div>
-                        <button class="btn btn-primary col-12" type="submit">Rent Now</button>
-                    </div>
-                </form>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
-
         </div>
         @endisset
 
