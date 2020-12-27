@@ -184,7 +184,8 @@ class PropertyController extends Controller
         switch ($request->request_type) {
             case 'property':
                 # code...
-                $property = Property::find($id)->update([
+                $property = Property::find($id);
+                $property->update([
                     'type' => $request->house_type,
                     'units' => $request->units,
                     'toilets' => $request->toilets,
