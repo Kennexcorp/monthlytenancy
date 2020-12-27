@@ -124,7 +124,7 @@
                             <div class="bath d-flex align-items-center"><span class="wrap-icon icon-bath"></span>
                                 <span>{{ $property->bathrooms }}</span></div>
                         </div>
-                        <h3 class="mb-3">&#8358;{{ $property->unit_price }}</h3>
+                        <h3 class="mb-3">&#8358;{{ number_format(floatval($property->unit_price)) }}</h3>
                         <span class="d-block small address d-flex align-items-center"> <span
                                 class="icon-room mr-3 text-primary"></span> <span>{{ $property->landlord->address }}</span></span>
                         <div class="row">
