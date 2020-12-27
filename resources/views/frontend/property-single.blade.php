@@ -116,7 +116,7 @@
                 unit</a>
                 </p> --}}
             </div>
-            
+
             @auth
                 <div class="col-md-4">
                     <form method="GET" action="{{ route('rents.rentAUnit') }}">
@@ -135,16 +135,16 @@
                     </form>
                 </div>
             @endauth
-            
+
             <div class="col-12">
                 <p>Other Images:</p>
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel" data-ride="carousel">
                     <ol class="carousel-indicators">
                         @foreach ($property->propertyImages as $images)
                             <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" @if($loop->index == 0)class="active" @endif></li>
-                           
+
                         @endforeach
-                        
+
                     </ol>
                     <div class="carousel-inner">
                         @foreach ($property->propertyImages as $images)
@@ -153,7 +153,7 @@
                                     alt="First slide">
                             </div>
                         @endforeach
-                        
+
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
