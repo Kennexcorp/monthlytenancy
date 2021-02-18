@@ -130,7 +130,11 @@
                             <input type="hidden" name="property" value="{{ $property->id }}">
                         </div>
                         <div>
+                            @if($property->units > 0)
                             <button class="btn btn-primary col-12" type="submit">Rent Now</button>
+                            @else
+                            <p><strong>No units are availiable for rent currently..'</strong></p>
+                            @endif
                         </div>
                     </form>
                 </div>
@@ -205,10 +209,15 @@
                             <span>{{ $prop->landlord->address }}</span></span>
                         <div class="row">
                             @auth
+                            @if($prop->units > 0)
                             <p><a href="#" class="btn btn-primary text-white px-4 py-3">Rent Now</a></p>&nbsp;
-                            <p><a href="{{ route('contact.property', $prop->id) }}"
-                                    class="btn btn-secondary text-white px-4 py-3">Request Inspection</a>
+                            <p><a href="{{ route('contact.property', $prop->id) }}" class="btn btn-secondary text-white px-4 py-3">Request
+                                    Inspection</a>
                             </p>&nbsp;
+                            @else
+                            <p><strong>No units are availiable for rent currently..'</strong></p>
+                            @endif
+
                             @else
                             <p><a href="{{ route('contact.property', $prop->id) }}"
                                     class="btn btn-primary text-white px-4 py-3">Request Inspection</a>

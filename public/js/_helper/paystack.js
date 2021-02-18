@@ -4,11 +4,12 @@ paymentForm.addEventListener('submit', payWithPaystack, false);
 function payWithPaystack(e) {
     e.preventDefault();
     let handler = PaystackPop.setup({
-        key: 'pk_test_d2a0eca1a7d7a92d47007fe63ed12c9b8ef564da', // Replace with your public key
+        // key: 'pk_test_d2a0eca1a7d7a92d47007fe63ed12c9b8ef564da', // Replace with your public key
+        key: 'pk_live_4fa0450d734a8bebdd29fa92201c1e3c01881233', // Replace with your public key
         email: document.getElementById('email').value,
         amount: document.getElementById('amount').value * 100,
         firstname: document.getElementById('name').value,
-        
+
         // lastname: document.getElementById('last-name').value,
         metadata: {
             property: document.getElementById('property').value,
@@ -22,7 +23,7 @@ function payWithPaystack(e) {
         },
         callback: function(response) {
             let message = 'Payment complete! Reference: ' + response.reference;
-            alert(message);
+            // alert(message);
             window.location = appurl + '/' + response.reference;
         },
     });

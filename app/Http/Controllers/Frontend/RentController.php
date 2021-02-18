@@ -160,6 +160,7 @@ class RentController extends Controller
                         'amount' => $amount,
                         'tref' => $txref
                     ]);
+
                     for ($i=1; $i < $duration; $i++) {
                         # code...
                         Rent::create([
@@ -170,6 +171,9 @@ class RentController extends Controller
                             'tref' => ''
                         ]);
                     }
+
+                    $userProp->units = $userProp->units - 1;
+                    $userProp->save();
                 });
 
             }
