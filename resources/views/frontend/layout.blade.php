@@ -113,7 +113,7 @@
                         </div>
                         <div class="col-md-4">
                             <h3 class="text-white h5 mb-3">About</h3>
-                            <p>First alternative realtors, is a property tech company, aimed at bridging the tenancy gap in Nigeria by providing alternative to yearly Tenancy. The monthly tenancy plan by first alternative Realtors is designed to improve
+                            <p>Monthly Tenancy Plan is a property tech company, aimed at bridging the tenancy gap in Nigeria by providing alternative to yearly Tenancy. The monthly tenancy plan by first alternative Realtors is designed to improve
                 rental in Nigeria, eliminate debt, increase occupancy rate and provide affordability and flexibility for tenants.</p>
                         </div>
                     </div>
