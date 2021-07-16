@@ -12,7 +12,7 @@
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-7">
                     <!-- <span class="h4 text-primary mb-4 d-block">&#8358;1,570,000</span> -->
-                    <h1 class="mb-2">The Monthly Tenancy Plan<br> &nbsp;by First Alternative Realtors</h1>
+                    <h1 class="mb-2">The Monthly Tenancy Plan</h1>
                     <p class="text-center mb-5"><span
                             class="small address d-flex align-items-center justify-content-center"> <span
                                 class="icon-room mr-3 text-primary"></span> <span>Abuja, Port harcourt and Lagos
