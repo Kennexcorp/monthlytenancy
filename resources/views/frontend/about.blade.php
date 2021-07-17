@@ -6,7 +6,7 @@
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-md-7">
             <h1 class="mb-2">About Us</h1>
-            <p class="text-white">The Monthly Tenancy Plan is a property tech company, aimed at bridging the tenancy gap in Nigeria by providing alternative to yearly Tenancy. The monthly tenancy plan by first alternative Realtors is designed to improve
+            <p class="text-white">The Monthly Tenancy Plan is a property tech company, aimed at bridging the tenancy gap in Nigeria by providing alternative to yearly Tenancy. The monthly tenancy plan is designed to improve
                 rental in Nigeria, eliminate debt, increase occupancy rate and provide affordability and flexibility for tenants.</p>
           </div>
         </div>
